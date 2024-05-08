@@ -1,0 +1,52 @@
+//  Copyright 2024 International Digital Economy Academy
+// 
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+// 
+//  http://www.apache.org/licenses/LICENSE-2.0
+// 
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+type JS_double_array
+
+pub fn JS_double_array::from_array(
+  arr : Array[Double]
+) -> Option[JS_double_array] {
+  let memory = @memory.allocate(arr.length() * 8)?
+  for i = 0; i < arr.length(); i = i + 1 {
+    memory.store64(i * 8, arr[i].reinterpret_as_i64())?
+  }
+  let array = float64_array_load_ffi(memory.offset, memory.length)
+  memory.free()?
+  Some(array)
+}
+
+pub fn JS_double_array::to_array(
+  arr : JS_double_array
+) -> Option[Array[Double]] {
+  println(arr.length())
+  if arr.length() == 0 {
+    Some([])
+  } else {
+    let memory = @memory.allocate(arr.length() * 8)?
+    float64_array_store_ffi(arr, memory.offset)
+    let array = Array::make(arr.length(), 0.0)
+    for i = 0; i < arr.length(); i = i + 1 {
+      array[i] = memory.load64(i * 8)?.reinterpret_as_double()
+    }
+    memory.free()?
+    Some(array)
+  }
+}
+
+fn float64_array_load_ffi(offset : Int, length : Int) -> JS_double_array = "array" "load_float64_array"
+
+fn float64_array_store_ffi(array : JS_double_array, offset : Int) = "array" "store_float64_array"
+
+pub fn JS_double_array::length(self : JS_double_array) -> Int = "array" "length"
+
+pub fn JS_double_array::empty() -> JS_double_array = "array" "empty"
