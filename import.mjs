@@ -34,7 +34,7 @@ const log = (() => {
 /** @type {(memory: () => WebAssembly.Memory) => WebAssembly.Imports} */
 export default function ffi(memory) {
     return {
-        canvas: {
+        "peter-jerry-ye:canvas/Canvas2D": {
             /** @type { (canvas: CanvasRenderingContext2D, x: number, y: number, width: number, height: number) => void} */
             strokeRect: (canvas, x, y, width, height) => { canvas.strokeRect(x, y, width, height) },
             /** @type { (canvas: CanvasRenderingContext2D, x: number, y: number, width: number, height: number) => void} */
@@ -84,7 +84,7 @@ export default function ffi(memory) {
             /** @type { (canvas: CanvasRenderingContext2D, style: string | CanvasGradient | CanvasPattern) => void} */
             set_fill_style: (canvas, style) => { canvas.fillStyle = style }
         },
-        string: {
+        "peter-jerry-ye:canvas/String": {
             /** @type { (str: String) => number} */
             length: (str) => str.length,
             /** @type {(offset: number, length: number) => string} */
@@ -103,7 +103,7 @@ export default function ffi(memory) {
             /** @type {() => String} */
             empty: () => ""
         },
-        array: {
+        "peter-jerry-ye:canvas/Array": {
             length: (array) => array.length,
             /** @type {(offset: number, length: number) => Float64Array} */
             load_float64_array: (offset, length) => {
@@ -118,19 +118,19 @@ export default function ffi(memory) {
             },
             empty: () => []
         },
-        window: {
+        "peter-jerry-ye:canvas/window": {
             /** @type {(callback: FrameRequestCallback) => number} */
             requestAnimationFrame: (callback) => window.requestAnimationFrame(callback),
             /** @type {(id: number) => void} */
             cancelAnimationFrame: (id) => window.cancelAnimationFrame(id)
         },
-        document: {
+        "peter-jerry-ye:canvas/document": {
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
             onkeydown: (callback) => { onkeydown = callback },
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
             onkeyup: (callback) => { onkeyup = callback }
         },
-        KeyboardEvent: {
+        "peter-jerry-ye:canvas/KeyboardEvent": {
             /** @type {(event: KeyboardEvent) => String} */
             key: (event) => event.key,
             /** @type {(event: KeyboardEvent) => String} */

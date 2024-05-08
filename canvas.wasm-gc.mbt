@@ -19,7 +19,7 @@ pub fn stroke_rect(
   y : Double,
   width : Double,
   height : Double
-) = "canvas" "strokeRect"
+) = "peter-jerry-ye:canvas/Canvas2D" "strokeRect"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect
 pub fn fill_rect(
@@ -28,7 +28,7 @@ pub fn fill_rect(
   y : Double,
   width : Double,
   height : Double
-) = "canvas" "fillRect"
+) = "peter-jerry-ye:canvas/Canvas2D" "fillRect"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
 pub fn clear_rect(
@@ -37,23 +37,23 @@ pub fn clear_rect(
   y : Double,
   width : Double,
   height : Double
-) = "canvas" "clearRect"
+) = "peter-jerry-ye:canvas/Canvas2D" "clearRect"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath
-pub fn begin_path(self : Canvas2D) = "canvas" "beginPath"
+pub fn begin_path(self : Canvas2D) = "peter-jerry-ye:canvas/Canvas2D" "beginPath"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/closePath
-pub fn close_path(self : Canvas2D) = "canvas" "closePath"
+pub fn close_path(self : Canvas2D) = "peter-jerry-ye:canvas/Canvas2D" "closePath"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/moveTo
-pub fn move_to(self : Canvas2D, x : Double, y : Double) = "canvas" "moveTo"
+pub fn move_to(self : Canvas2D, x : Double, y : Double) = "peter-jerry-ye:canvas/Canvas2D" "moveTo"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
-pub fn line_to(self : Canvas2D, x : Double, y : Double) = "canvas" "lineTo"
+pub fn line_to(self : Canvas2D, x : Double, y : Double) = "peter-jerry-ye:canvas/Canvas2D" "lineTo"
 
-fn stroke_ffi(self : Canvas2D) = "canvas" "stroke"
+fn stroke_ffi(self : Canvas2D) = "peter-jerry-ye:canvas/Canvas2D" "stroke"
 
-fn stroke_path_ffi(self : Canvas2D, path : Path2D) = "canvas" "stroke"
+fn stroke_path_ffi(self : Canvas2D, path : Path2D) = "peter-jerry-ye:canvas/Canvas2D" "stroke"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/stroke
 pub fn stroke(self : Canvas2D, ~path : Option[Path2D] = None) -> Unit {
@@ -63,17 +63,17 @@ pub fn stroke(self : Canvas2D, ~path : Option[Path2D] = None) -> Unit {
   }
 }
 
-fn fill_ffi(self : Canvas2D) = "canvas" "fill"
+fn fill_ffi(self : Canvas2D) = "peter-jerry-ye:canvas/Canvas2D" "fill"
 
-fn fill_fillRule_ffi(self : Canvas2D, fillRule : @lib.JS_String) = "canvas" "fill"
+fn fill_fillRule_ffi(self : Canvas2D, fillRule : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "fill"
 
-fn fill_path_ffi(self : Canvas2D, path : Path2D) = "canvas" "fill_path"
+fn fill_path_ffi(self : Canvas2D, path : Path2D) = "peter-jerry-ye:canvas/Canvas2D" "fill_path"
 
 fn fill_path_fillRule_ffi(
   self : Canvas2D,
   path : Path2D,
   fillRule : @lib.JS_String
-) = "canvas" "fill_path"
+) = "peter-jerry-ye:canvas/Canvas2D" "fill_path"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fill
 pub fn fill(
@@ -101,7 +101,7 @@ fn fill_text_ffi(
   text : @lib.JS_String,
   x : Double,
   y : Double
-) = "canvas" "fillText"
+) = "peter-jerry-ye:canvas/Canvas2D" "fillText"
 
 fn fill_text_maxwidth_ffi(
   self : Canvas2D,
@@ -109,7 +109,7 @@ fn fill_text_maxwidth_ffi(
   x : Double,
   y : Double,
   max_width : Double
-) = "canvas" "fillText"
+) = "peter-jerry-ye:canvas/Canvas2D" "fillText"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText
 pub fn fill_text(
@@ -136,7 +136,7 @@ fn stroke_text_ffi(
   text : @lib.JS_String,
   x : Double,
   y : Double
-) = "canvas" "strokeText"
+) = "peter-jerry-ye:canvas/Canvas2D" "strokeText"
 
 fn stroke_text_maxwidth_ffi(
   self : Canvas2D,
@@ -144,7 +144,7 @@ fn stroke_text_maxwidth_ffi(
   x : Double,
   y : Double,
   max_width : Double
-) = "canvas" "strokeText"
+) = "peter-jerry-ye:canvas/Canvas2D" "strokeText"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeText
 pub fn stroke_text(
@@ -168,12 +168,12 @@ pub fn stroke_text(
 }
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineWidth
-pub fn get_line_width(self : Canvas2D) -> Double = "canvas" "get_lineWidth"
+pub fn get_line_width(self : Canvas2D) -> Double = "peter-jerry-ye:canvas/Canvas2D" "get_lineWidth"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineWidth
-pub fn set_line_width(self : Canvas2D, width : Double) = "canvas" "set_lineWidth"
+pub fn set_line_width(self : Canvas2D, width : Double) = "peter-jerry-ye:canvas/Canvas2D" "set_lineWidth"
 
-fn get_line_cap_ffi(self : Canvas2D) -> @lib.JS_String = "canvas" "get_lineCap"
+fn get_line_cap_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas/Canvas2D" "get_lineCap"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
 pub fn get_line_cap(self : Canvas2D) -> CanavsLineCap {
@@ -185,14 +185,14 @@ pub fn get_line_cap(self : Canvas2D) -> CanavsLineCap {
   }
 }
 
-fn set_line_cap_ffi(self : Canvas2D, cap : @lib.JS_String) = "canvas" "set_lineCap"
+fn set_line_cap_ffi(self : Canvas2D, cap : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "set_lineCap"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
 pub fn set_line_cap(self : Canvas2D, cap : CanavsLineCap) -> Unit {
   self.set_line_cap_ffi(@lib.JS_String::from_string(cap.to_string()).unwrap())
 }
 
-fn get_line_join_ffi(self : Canvas2D) -> @lib.JS_String = "canvas" "get_lineJoin"
+fn get_line_join_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas/Canvas2D" "get_lineJoin"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
 /// 
@@ -206,7 +206,7 @@ pub fn get_line_join(self : Canvas2D) -> CanvasLineJoin {
   }
 }
 
-fn set_line_join_ffi(self : Canvas2D, join : @lib.JS_String) = "canvas" "set_lineJoin"
+fn set_line_join_ffi(self : Canvas2D, join : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "set_lineJoin"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
 /// 
@@ -216,30 +216,30 @@ pub fn set_line_join(self : Canvas2D, join : CanvasLineJoin) -> Unit {
 }
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/miterLimit
-pub fn get_miter_limit(self : Canvas2D) -> Double = "canvas" "get_miterLimit"
+pub fn get_miter_limit(self : Canvas2D) -> Double = "peter-jerry-ye:canvas/Canvas2D" "get_miterLimit"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/miterLimit
-pub fn set_miter_limit(self : Canvas2D, limit : Double) = "canvas" "set_miterLimit"
+pub fn set_miter_limit(self : Canvas2D, limit : Double) = "peter-jerry-ye:canvas/Canvas2D" "set_miterLimit"
 
-fn get_line_dash_ffi(self : Canvas2D) -> @lib.JS_double_array = "canvas" "getLineDash"
+fn get_line_dash_ffi(self : Canvas2D) -> @lib.JS_double_array = "peter-jerry-ye:canvas/Canvas2D" "getLineDash"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getLineDash
 pub fn get_line_dash(self : Canvas2D) -> Array[Double] {
   self.get_line_dash_ffi().to_array().unwrap()
 }
 
-fn set_line_dash_ffi(self : Canvas2D, segments : @lib.JS_double_array) = "canvas" "setLineDash"
+fn set_line_dash_ffi(self : Canvas2D, segments : @lib.JS_double_array) = "peter-jerry-ye:canvas/Canvas2D" "setLineDash"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
 pub fn set_line_dash(self : Canvas2D, segments : Array[Double]) -> Unit {
   self.set_line_dash_ffi(@lib.JS_double_array::from_array(segments).unwrap())
 }
 
-fn set_stroke_style_color_ffi(self : Canvas2D, color : @lib.JS_String) = "canvas" "set_stroke_style"
+fn set_stroke_style_color_ffi(self : Canvas2D, color : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "set_stroke_style"
 
-fn set_stroke_style_gradient_ffi(self : Canvas2D, gradient : CanvasGradient) = "canvas" "set_stroke_style"
+fn set_stroke_style_gradient_ffi(self : Canvas2D, gradient : CanvasGradient) = "peter-jerry-ye:canvas/Canvas2D" "set_stroke_style"
 
-fn set_stroke_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "canvas" "set_stroke_style"
+fn set_stroke_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "peter-jerry-ye:canvas/Canvas2D" "set_stroke_style"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle
 /// 
@@ -255,11 +255,11 @@ pub fn set_stroke_style(self : Canvas2D, style : CanvasStrokeFillStyle) -> Unit 
   }
 }
 
-fn set_fill_style_color_ffi(self : Canvas2D, color : @lib.JS_String) = "canvas" "set_fill_style"
+fn set_fill_style_color_ffi(self : Canvas2D, color : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "set_fill_style"
 
-fn set_fill_style_gradient_ffi(self : Canvas2D, gradient : CanvasGradient) = "canvas" "set_fill_style"
+fn set_fill_style_gradient_ffi(self : Canvas2D, gradient : CanvasGradient) = "peter-jerry-ye:canvas/Canvas2D" "set_fill_style"
 
-fn set_fill_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "canvas" "set_fill_style"
+fn set_fill_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "peter-jerry-ye:canvas/Canvas2D" "set_fill_style"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle
 /// 

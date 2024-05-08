@@ -12,14 +12,14 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-fn request_animation_frame_ffi(callback : (Double) -> Unit) -> Double = "window" "requestAnimationFrame"
+fn request_animation_frame_ffi(callback : (Double) -> Unit) -> Double = "peter-jerry-ye:canvas/window" "requestAnimationFrame"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 pub fn request_animation_frame(callback : (Int64) -> Unit) -> Int64 {
   request_animation_frame_ffi(fn(d) { callback(d.to_int64()) }).to_int64()
 }
 
-fn cancel_animation_frame_ffi(requestID : Double) = "window" "cancelAnimationFrame"
+fn cancel_animation_frame_ffi(requestID : Double) = "peter-jerry-ye:canvas/window" "cancelAnimationFrame"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame
 pub fn cancel_animation_frame(requestID : Int64) -> Unit {
