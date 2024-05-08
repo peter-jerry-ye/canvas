@@ -31,7 +31,7 @@ const log = (() => {
     return log
 })();
 
-/** @type {(memory: WebAssembly.Memory) => WebAssembly.Imports} */
+/** @type {(memory: () => WebAssembly.Memory) => WebAssembly.Imports} */
 export default function ffi(memory) {
     return {
         canvas: {
@@ -89,13 +89,13 @@ export default function ffi(memory) {
             length: (str) => str.length,
             /** @type {(offset: number, length: number) => string} */
             load: (offset, length) => {
-                const bytes = new Uint16Array(memory.buffer, offset, length);
+                const bytes = new Uint16Array(memory().buffer, offset, length);
                 const string = new TextDecoder("utf-16").decode(bytes);
                 return string
             },
             /** @type {(string: String, offset: number) => void} */
             store: (string, offset) => {
-                const view = new DataView(memory.buffer, offset);
+                const view = new DataView(memory().buffer, offset);
                 for (let i = 0; i < string.length; i++) {
                     view.setUint16(i * 2, string.charCodeAt(i), true);
                 }
@@ -107,11 +107,11 @@ export default function ffi(memory) {
             length: (array) => array.length,
             /** @type {(offset: number, length: number) => Float64Array} */
             load_float64_array: (offset, length) => {
-                return new Float64Array(memory.buffer, offset, length);
+                return new Float64Array(memory().buffer, offset, length);
             },
             /** @type {<T extends number>(array: Array<T>, offset: number) => void} */
             store_float64_array: (array, offset) => {
-                const view = new DataView(memory.buffer, offset);
+                const view = new DataView(memory().buffer, offset);
                 for (let i = 0; i < array.length; i++) {
                     view.setFloat64(i * 8, array[i], true);
                 }
