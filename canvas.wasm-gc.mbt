@@ -12,11 +12,6 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-/// CanvasRenderingContext2D
-/// 
-/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-type Canvas2D
-
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect
 pub fn stroke_rect(
   self : Canvas2D,
@@ -249,7 +244,7 @@ fn set_stroke_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "can
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle
 /// 
 /// The parameter is a string parsed as CSS <color> value.
-pub fn set_stroke_style_color(self : Canvas2D, style : StrokeFillStyle) -> Unit {
+pub fn set_stroke_style(self : Canvas2D, style : StrokeFillStyle) -> Unit {
   match style {
     Color(color) =>
       self.set_stroke_style_color_ffi(
@@ -269,18 +264,11 @@ fn set_fill_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "canva
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle
 /// 
 /// The parameter is a string parsed as CSS <color> value.
-pub fn set_fill_style_color(self : Canvas2D, style : StrokeFillStyle) -> Unit {
+pub fn set_fill_style(self : Canvas2D, style : StrokeFillStyle) -> Unit {
   match style {
     Color(color) =>
       self.set_fill_style_color_ffi(@lib.JS_String::from_string(color).unwrap())
     Gradient(gradient) => self.set_fill_style_gradient_ffi(gradient)
     Pattern(pattern) => self.set_fill_style_pattern_ffi(pattern)
   }
-}
-
-/// String | CanvasGradient | CanvasPattern
-pub enum StrokeFillStyle {
-  Color(String)
-  Gradient(CanvasGradient)
-  Pattern(CanvasPattern)
 }

@@ -11,6 +11,12 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
+
+/// CanvasRenderingContext2D
+/// 
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+pub type Canvas2D
+
 /// CanvasPattern
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern
@@ -65,4 +71,11 @@ pub fn to_string(self : FillRule) -> String {
     Nonzero => "nonzero"
     Evenodd => "evenodd"
   }
+}
+
+/// String | CanvasGradient | CanvasPattern
+pub enum StrokeFillStyle {
+  Color(String)
+  Gradient(CanvasGradient)
+  Pattern(CanvasPattern)
 }
