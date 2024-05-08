@@ -141,6 +141,9 @@ export default function ffi(memory) {
         },
         spectest: {
             print_char: log
+        },
+        "moonbit:ffi": {
+            make_closure: (funcref, closure) => funcref.bind(null, closure)
         }
     };
 }
