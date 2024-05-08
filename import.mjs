@@ -127,9 +127,9 @@ export default function ffi(memory) {
         },
         "peter-jerry-ye:canvas/document": {
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
-            onkeydown: (callback) => { onkeydown = callback },
+            set_onkeydown: (callback) => { onkeydown = callback },
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
-            onkeyup: (callback) => { onkeyup = callback }
+            set_onkeyup: (callback) => { onkeyup = callback }
         },
         "peter-jerry-ye:canvas/KeyboardEvent": {
             /** @type {(event: KeyboardEvent) => String} */
