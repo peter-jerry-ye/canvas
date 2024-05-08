@@ -101,7 +101,8 @@ export default function ffi(memory) {
                 }
             },
             /** @type {() => String} */
-            empty: () => ""
+            empty: () => "",
+            log: console.log
         },
         "peter-jerry-ye:canvas/Array": {
             length: (array) => array.length,

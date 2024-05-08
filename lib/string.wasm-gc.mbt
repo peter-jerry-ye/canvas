@@ -13,15 +13,15 @@
 //  limitations under the License.
 type JS_String
 
-fn string_load_ffi(offset : Int, length : Int) -> JS_String = "string" "load"
+fn string_load_ffi(offset : Int, length : Int) -> JS_String = "peter-jerry-ye:canvas/String" "load"
 
-fn string_store_ffi(string : JS_String, offset : Int) = "string" "store"
+fn string_store_ffi(string : JS_String, offset : Int) = "peter-jerry-ye:canvas/String" "store"
 
-pub fn length(self : JS_String) -> Int = "string" "length"
+pub fn length(self : JS_String) -> Int = "peter-jerry-ye:canvas/String" "length"
 
-pub fn log(self : JS_String) = "string" "log"
+pub fn log(self : JS_String) = "peter-jerry-ye:canvas/String" "log"
 
-pub fn JS_String::empty() -> JS_String = "string" "empty"
+pub fn JS_String::empty() -> JS_String = "peter-jerry-ye:canvas/String" "empty"
 
 pub fn JS_String::from_string(str : String) -> Option[JS_String] {
   if str.length() == 0 {

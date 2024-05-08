@@ -43,10 +43,10 @@ pub fn JS_double_array::to_array(
   }
 }
 
-fn float64_array_load_ffi(offset : Int, length : Int) -> JS_double_array = "array" "load_float64_array"
+fn float64_array_load_ffi(offset : Int, length : Int) -> JS_double_array = "peter-jerry-ye:canvas/Array" "load_float64_array"
 
-fn float64_array_store_ffi(array : JS_double_array, offset : Int) = "array" "store_float64_array"
+fn float64_array_store_ffi(array : JS_double_array, offset : Int) = "peter-jerry-ye:canvas/Array" "store_float64_array"
 
-pub fn JS_double_array::length(self : JS_double_array) -> Int = "array" "length"
+pub fn JS_double_array::length(self : JS_double_array) -> Int = "peter-jerry-ye:canvas/Array" "length"
 
-pub fn JS_double_array::empty() -> JS_double_array = "array" "empty"
+pub fn JS_double_array::empty() -> JS_double_array = "peter-jerry-ye:canvas/Array" "empty"
