@@ -32,13 +32,13 @@ pub type CanvasGradient
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Path2D
 pub type Path2D
 
-pub enum LineJoin {
+pub enum CanvasLineJoin {
   Bevel
   Miter
   Round
 }
 
-pub fn to_string(self : LineJoin) -> String {
+pub fn to_string(self : CanvasLineJoin) -> String {
   match self {
     Bevel => "bevel"
     Miter => "miter"
@@ -46,13 +46,13 @@ pub fn to_string(self : LineJoin) -> String {
   }
 }
 
-pub enum LineCap {
+pub enum CanavsLineCap {
   Butt
   Round
   Square
 }
 
-pub fn to_string(self : LineCap) -> String {
+pub fn to_string(self : CanavsLineCap) -> String {
   match self {
     Butt => "butt"
     Round => "round"
@@ -61,12 +61,12 @@ pub fn to_string(self : LineCap) -> String {
 }
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fill
-pub enum FillRule {
+pub enum CanvasFillRule {
   Nonzero
   Evenodd
 }
 
-pub fn to_string(self : FillRule) -> String {
+pub fn to_string(self : CanvasFillRule) -> String {
   match self {
     Nonzero => "nonzero"
     Evenodd => "evenodd"
@@ -74,8 +74,10 @@ pub fn to_string(self : FillRule) -> String {
 }
 
 /// String | CanvasGradient | CanvasPattern
-pub enum StrokeFillStyle {
+pub enum CanvasStrokeFillStyle {
   Color(String)
   Gradient(CanvasGradient)
   Pattern(CanvasPattern)
 }
+
+pub type KeyboardEvent

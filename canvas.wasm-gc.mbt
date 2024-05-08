@@ -79,7 +79,7 @@ fn fill_path_fillRule_ffi(
 pub fn fill(
   self : Canvas2D,
   ~path : Option[Path2D] = None,
-  ~fillRule : Option[FillRule] = None
+  ~fillRule : Option[CanvasFillRule] = None
 ) -> Unit {
   match (path, fillRule) {
     (None, None) => self.fill_ffi()
@@ -176,11 +176,11 @@ pub fn set_line_width(self : Canvas2D, width : Double) = "canvas" "set_lineWidth
 fn get_line_cap_ffi(self : Canvas2D) -> @lib.JS_String = "canvas" "get_lineCap"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
-pub fn get_line_cap(self : Canvas2D) -> LineCap {
+pub fn get_line_cap(self : Canvas2D) -> CanavsLineCap {
   match @lib.JS_String::to_string(self.get_line_cap_ffi()).unwrap() {
-    "butt" => LineCap::Butt
-    "round" => LineCap::Round
-    "square" => LineCap::Square
+    "butt" => CanavsLineCap::Butt
+    "round" => CanavsLineCap::Round
+    "square" => CanavsLineCap::Square
     _ => abort("Invalid line cap value.")
   }
 }
@@ -188,7 +188,7 @@ pub fn get_line_cap(self : Canvas2D) -> LineCap {
 fn set_line_cap_ffi(self : Canvas2D, cap : @lib.JS_String) = "canvas" "set_lineCap"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
-pub fn set_line_cap(self : Canvas2D, cap : LineCap) -> Unit {
+pub fn set_line_cap(self : Canvas2D, cap : CanavsLineCap) -> Unit {
   self.set_line_cap_ffi(@lib.JS_String::from_string(cap.to_string()).unwrap())
 }
 
@@ -197,11 +197,11 @@ fn get_line_join_ffi(self : Canvas2D) -> @lib.JS_String = "canvas" "get_lineJoin
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
 /// 
 /// `join` is one of : "round" "bevel" "miter
-pub fn get_line_join(self : Canvas2D) -> LineJoin {
+pub fn get_line_join(self : Canvas2D) -> CanvasLineJoin {
   match get_line_join_ffi(self).to_string().unwrap() {
-    "round" => LineJoin::Round
-    "bevel" => LineJoin::Bevel
-    "miter" => LineJoin::Miter
+    "round" => CanvasLineJoin::Round
+    "bevel" => CanvasLineJoin::Bevel
+    "miter" => CanvasLineJoin::Miter
     _ => abort("Invalid line join value.")
   }
 }
@@ -211,7 +211,7 @@ fn set_line_join_ffi(self : Canvas2D, join : @lib.JS_String) = "canvas" "set_lin
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
 /// 
 /// `join` is one of : "round" "bevel" "miter"
-pub fn set_line_join(self : Canvas2D, join : LineJoin) -> Unit {
+pub fn set_line_join(self : Canvas2D, join : CanvasLineJoin) -> Unit {
   self.set_line_join_ffi(@lib.JS_String::from_string(join.to_string()).unwrap())
 }
 
@@ -244,7 +244,7 @@ fn set_stroke_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "can
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle
 /// 
 /// The parameter is a string parsed as CSS <color> value.
-pub fn set_stroke_style(self : Canvas2D, style : StrokeFillStyle) -> Unit {
+pub fn set_stroke_style(self : Canvas2D, style : CanvasStrokeFillStyle) -> Unit {
   match style {
     Color(color) =>
       self.set_stroke_style_color_ffi(
@@ -264,7 +264,7 @@ fn set_fill_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "canva
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle
 /// 
 /// The parameter is a string parsed as CSS <color> value.
-pub fn set_fill_style(self : Canvas2D, style : StrokeFillStyle) -> Unit {
+pub fn set_fill_style(self : Canvas2D, style : CanvasStrokeFillStyle) -> Unit {
   match style {
     Color(color) =>
       self.set_fill_style_color_ffi(@lib.JS_String::from_string(color).unwrap())

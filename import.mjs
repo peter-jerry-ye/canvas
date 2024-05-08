@@ -118,6 +118,26 @@ export default function ffi(memory) {
             },
             empty: () => []
         },
+        window: {
+            /** @type {(callback: FrameRequestCallback) => number} */
+            requestAnimationFrame: (callback) => window.requestAnimationFrame(callback),
+            /** @type {(id: number) => void} */
+            cancelAnimationFrame: (id) => window.cancelAnimationFrame(id)
+        },
+        document: {
+            /** @type {(callback: (_: KeyboardEvent) => void) => void} */
+            onkeydown: (callback) => { onkeydown = callback },
+            /** @type {(callback: (_: KeyboardEvent) => void) => void} */
+            onkeyup: (callback) => { onkeyup = callback }
+        },
+        KeyboardEvent: {
+            /** @type {(event: KeyboardEvent) => String} */
+            key: (event) => event.key,
+            /** @type {(event: KeyboardEvent) => String} */
+            code: (event) => event.code,
+            /** @type {(event: KeyboardEvent) => Boolean} */
+            isComposing: (event) => event.isComposing,
+        },
         spectest: {
             print_char: log
         }
