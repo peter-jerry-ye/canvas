@@ -1,6 +1,6 @@
 {
   "name": "peter-jerry-ye/canvas",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "deps": {
     "peter-jerry-ye/memory": "0.7.0"
   },
