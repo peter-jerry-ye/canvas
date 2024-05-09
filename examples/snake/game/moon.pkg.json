@@ -1,0 +1,15 @@
+{
+    "import": [
+        {
+            "path": "peter-jerry-ye/canvas/lib",
+            "alias": "canvas"
+        }
+    ],
+    "link": {
+        "wasm-gc": {
+            "exports": [
+                "entry"
+            ]
+        }
+    }
+}
