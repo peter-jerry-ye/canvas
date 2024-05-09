@@ -5,3 +5,7 @@ An experimental MoonBit project that aims to assist the creation of animation/dr
 
 FFI are provided as `import.mjs`.
 FFI在`import.mjs`中。
+
+## Usage 用法
+
+See `examples/counter`. 参考`examples/counter`中的例子。
