@@ -20,6 +20,7 @@ let state : GameState = {
 let game_interval = 500L
 
 pub fn entry(context : @canvas.Canvas2D, seed : Int) -> Unit {
+  context.scale(24.0, 24.0)
   random.val = seed.to_int64()
   state.initialize()
   let last_frame : Ref[Int64] = { val: 0L }

@@ -18,10 +18,11 @@
 
 <head>
   <link rel="stylesheet" href="./style.css" />
+  <script src=".mooncakes/peter-jerry-ye/canvas/component.mjs" type="module"></script>
 </head>
 
 <body>
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" is="moonbit-canvas" src="target/wasm-gc/release/build/game/game.wasm" width="480" height="480"></canvas>
   <div class="information">
     <div>
       <p><kbd>up</kbd>: go up</p>
@@ -31,6 +32,5 @@
     </div>
   </div>
 </body>
-<script src="./main.mjs" type="module"></script>
 
 </html>

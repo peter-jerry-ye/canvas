@@ -14,23 +14,21 @@
   limitations under the License. 
 */
 body {
-    margin: 0;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10vh;
-  
-    background-color: rgb(54, 44, 44);
-    background-position: center;
-  }
-  
-  canvas {
-    border: 2px solid rgb(109, 109, 109);
-  }
-  
-  .information {
-    color: #fff;
-    margin-left: 5rem;
-  }
-  
-  
+  margin: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vh;
+
+  background-color: rgb(54, 44, 44);
+  background-position: center;
+}
+
+canvas {
+  border: 2px solid rgb(109, 109, 109);
+}
+
+.information {
+  color: #fff;
+  margin-left: 5rem;
+}

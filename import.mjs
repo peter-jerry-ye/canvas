@@ -91,6 +91,8 @@ export default function ffi(memory) {
             drawImage_dim: (canvas, image, dx, dy, dWidth, dHeight) => { canvas.drawImage(image, dx, dy, dWidth, dHeight) },
             /** @type { (canvas: CanvasRenderingContext2D, image: CanvasImageSource, sx: number, sy: number, sWidth: number, sHeight: number, dx: number, dy: number, dWidth: number, dHeight: number) => void} */
             drawImage_sub: (canvas, image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) => { canvas.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) },
+            /** @type { (canvas: CanvasRenderingContext2D, x: number, y: number) => void} */
+            scale: (canvas, x, y) => { canvas.scale(x, y) }
         },
         "peter-jerry-ye:canvas/HTMLImageElement": {
             /** @type { (width: number | undefined, height: number | undefined) => HTMLImageElement} */

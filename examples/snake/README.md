@@ -2,6 +2,8 @@
 
 The classic game of snake.
 
+This example also demonstrate the usage of custom element.
+
 ## Usage
 
 Requirement: Chrome >= 119, Firefox >= 120

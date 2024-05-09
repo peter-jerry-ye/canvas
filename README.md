@@ -8,4 +8,4 @@ FFI在`import.mjs`中。
 
 ## Usage 用法
 
-See `examples/counter`. 参考`examples/counter`中的例子。
+See `examples/`. 参考`examples/`中的例子。

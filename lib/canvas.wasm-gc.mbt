@@ -402,3 +402,6 @@ pub fn draw_image_subpart_with_dimention(
       )
   }
 }
+
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/scale
+pub fn scale(self : Canvas2D, x : Double, y : Double) = "peter-jerry-ye:canvas/Canvas2D" "scale"
