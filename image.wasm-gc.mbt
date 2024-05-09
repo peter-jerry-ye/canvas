@@ -22,15 +22,12 @@ pub fn HTMLImageElement::make(
   }
 }
 
-fn set_src_ffi(
-  image : HTMLImageElement,
-  src : @lib.JS_String
-) -> HTMLImageElement = "peter-jerry-ye:canvas/HTMLImageElement" "set_src"
+fn set_src_ffi(image : HTMLImageElement, src : @lib.JS_String) -> Unit = "peter-jerry-ye:canvas/HTMLImageElement" "set_src"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/src
 pub fn HTMLImageElement::set_src(
   image : HTMLImageElement,
   src : String
-) -> HTMLImageElement {
+) -> Unit {
   set_src_ffi(image, @lib.JS_String::from_string(src).unwrap())
 }
