@@ -82,7 +82,21 @@ export default function ffi(memory) {
             /** @type { (canvas: CanvasRenderingContext2D, style: string | CanvasGradient | CanvasPattern) => void} */
             set_stroke_style: (canvas, style) => { canvas.strokeStyle = style },
             /** @type { (canvas: CanvasRenderingContext2D, style: string | CanvasGradient | CanvasPattern) => void} */
-            set_fill_style: (canvas, style) => { canvas.fillStyle = style }
+            set_fill_style: (canvas, style) => { canvas.fillStyle = style },
+            /** @type { (canvas: CanvasRenderingContext2D, font: string) => void} */
+            set_font: (canvas, font) => { canvas.font = font },
+            /** @type { (canvas: CanvasRenderingContext2D, image: CanvasImageSource, dx: number, dy: number) => void} */
+            drawImage: (canvas, image, dx, dy) => { canvas.drawImage(image, dx, dy) },
+            /** @type { (canvas: CanvasRenderingContext2D, image: CanvasImageSource, dx: number, dy: number, dWidth: number, dHeight: number) => void} */
+            drawImage_dim: (canvas, image, dx, dy, dWidth, dHeight) => { canvas.drawImage(image, dx, dy, dWidth, dHeight) },
+            /** @type { (canvas: CanvasRenderingContext2D, image: CanvasImageSource, sx: number, sy: number, sWidth: number, sHeight: number, dx: number, dy: number, dWidth: number, dHeight: number) => void} */
+            drawImage_sub: (canvas, image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) => { canvas.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) },
+        },
+        "peter-jerry-ye:canvas/HTMLImageElement": {
+            /** @type { (width: number | undefined, height: number | undefined) => HTMLImageElement} */
+            new: (width, height) => new Image(width, height),
+            /** @type { (image: HTMLImageElement, src: String) => void} */
+            set_src: (image, src) => { image.src = src },
         },
         "peter-jerry-ye:canvas/String": {
             /** @type { (str: String) => number} */

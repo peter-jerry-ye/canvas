@@ -272,3 +272,133 @@ pub fn set_fill_style(self : Canvas2D, style : CanvasStrokeFillStyle) -> Unit {
     Pattern(pattern) => self.set_fill_style_pattern_ffi(pattern)
   }
 }
+
+fn set_font_ffi(self : Canvas2D, font : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "set_font"
+
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font
+pub fn set_font(self : Canvas2D, font : String) -> Unit {
+  self.set_font_ffi(@lib.JS_String::from_string(font).unwrap())
+}
+
+fn draw_image_html_image_element_ffi(
+  self : Canvas2D,
+  image : HTMLImageElement,
+  dx : Double,
+  dy : Double
+) = "peter-jerry-ye:canvas/Canvas2D" "drawImage"
+
+fn draw_image_dim_html_image_element_ffi(
+  self : Canvas2D,
+  image : HTMLImageElement,
+  dx : Double,
+  dy : Double,
+  d_width : Double,
+  d_height : Double
+) = "peter-jerry-ye:canvas/Canvas2D" "drawImage_dim"
+
+fn draw_image_sub_html_image_element_ffi(
+  self : Canvas2D,
+  image : HTMLImageElement,
+  sx : Double,
+  sy : Double,
+  s_width : Double,
+  s_height : Double,
+  dx : Double,
+  dy : Double,
+  d_width : Double,
+  d_height : Double
+) = "peter-jerry-ye:canvas/Canvas2D" "drawImage_sub"
+
+fn draw_image_html_canvas_element_ffi(
+  self : Canvas2D,
+  image : HTMLCanvasElement,
+  dx : Double,
+  dy : Double
+) = "peter-jerry-ye:canvas/Canvas2D" "drawImage"
+
+fn draw_image_dim_html_canvas_element_ffi(
+  self : Canvas2D,
+  image : HTMLCanvasElement,
+  dx : Double,
+  dy : Double,
+  d_width : Double,
+  d_height : Double
+) = "peter-jerry-ye:canvas/Canvas2D" "drawImage_dim"
+
+fn draw_image_sub_html_canvas_element_ffi(
+  self : Canvas2D,
+  image : HTMLCanvasElement,
+  sx : Double,
+  sy : Double,
+  s_width : Double,
+  s_height : Double,
+  dx : Double,
+  dy : Double,
+  d_width : Double,
+  d_height : Double
+) = "peter-jerry-ye:canvas/Canvas2D" "drawImage_sub"
+
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+/// 
+/// 3-argument syntax
+pub fn draw_image(
+  self : Canvas2D,
+  image : CanvasImageSource,
+  dx : Double,
+  dy : Double
+) -> Unit {
+  match image {
+    HTMLImageElement(image) =>
+      self.draw_image_html_image_element_ffi(image, dx, dy)
+    HTMLCanvasElement(image) =>
+      self.draw_image_html_canvas_element_ffi(image, dx, dy)
+  }
+}
+
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+/// 
+/// 5-argument syntax
+pub fn draw_image_with_dimension(
+  self : Canvas2D,
+  image : CanvasImageSource,
+  dx : Double,
+  dy : Double,
+  dwidth : Double,
+  dheight : Double
+) -> Unit {
+  match image {
+    HTMLImageElement(image) =>
+      self.draw_image_dim_html_image_element_ffi(image, dx, dy, dwidth, dheight)
+    HTMLCanvasElement(image) =>
+      self.draw_image_dim_html_canvas_element_ffi(
+        image, dx, dy, dwidth, dheight,
+      )
+  }
+}
+
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+/// 
+/// 7-argument syntax
+pub fn draw_image_subpart_with_dimention(
+  self : Canvas2D,
+  image : CanvasImageSource,
+  sx : Double,
+  sy : Double,
+  swidth : Double,
+  sheight : Double,
+  dx : Double,
+  dy : Double,
+  dwidth : Double,
+  dheight : Double
+) -> Unit {
+  match image {
+    HTMLImageElement(image) =>
+      self.draw_image_sub_html_image_element_ffi(
+        image, sx, sy, swidth, sheight, dx, dy, dwidth, dheight,
+      )
+    HTMLCanvasElement(image) =>
+      self.draw_image_sub_html_canvas_element_ffi(
+        image, sx, sy, swidth, sheight, dx, dy, dwidth, dheight,
+      )
+  }
+}

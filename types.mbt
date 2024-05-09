@@ -81,3 +81,12 @@ pub enum CanvasStrokeFillStyle {
 }
 
 pub type KeyboardEvent
+
+pub type HTMLImageElement
+
+pub type HTMLCanvasElement
+
+pub enum CanvasImageSource {
+  HTMLImageElement(HTMLImageElement)
+  HTMLCanvasElement(HTMLCanvasElement)
+}
