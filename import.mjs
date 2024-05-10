@@ -31,8 +31,8 @@ const log = (() => {
     return log
 })();
 
-/** @type {(memory: () => WebAssembly.Memory) => WebAssembly.Imports} */
-export default function ffi(memory) {
+/** @type {(memory: () => WebAssembly.Memory, eventTarget?: HTMLElement) => WebAssembly.Imports} */
+export default function ffi(memory, eventTarget) {
     return {
         "peter-jerry-ye:canvas/Canvas2D": {
             /** @type { (canvas: CanvasRenderingContext2D, x: number, y: number, width: number, height: number) => void} */
@@ -141,11 +141,11 @@ export default function ffi(memory) {
             /** @type {(id: number) => void} */
             cancelAnimationFrame: (id) => window.cancelAnimationFrame(id)
         },
-        "peter-jerry-ye:canvas/document": {
+        "peter-jerry-ye:canvas/event": {
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
-            set_onkeydown: (callback) => { onkeydown = callback },
+            set_onkeydown: (callback) => { (eventTarget ?? globalThis).onkeydown = callback },
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
-            set_onkeyup: (callback) => { onkeyup = callback }
+            set_onkeyup: (callback) => { (eventTarget ?? globalThis).onkeyup = callback }
         },
         "peter-jerry-ye:canvas/KeyboardEvent": {
             /** @type {(event: KeyboardEvent) => String} */

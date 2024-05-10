@@ -17,11 +17,12 @@ class MoonBitCanvas extends HTMLCanvasElement {
     constructor() {
         super();
         const wasm_url = this.attributes.getNamedItem("src")?.value
+        this.tabIndex = -1; // make it focusable
         if (wasm_url) {
             const context = this.getContext("2d")
             let memory
             const importObject = {
-                ...ffi(() => memory)
+                ...ffi(() => memory, this)
             };
             WebAssembly.instantiateStreaming(fetch(wasm_url), importObject).then(
                 (obj) => {
