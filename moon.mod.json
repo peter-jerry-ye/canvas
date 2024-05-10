@@ -1,12 +1,12 @@
 {
   "name": "peter-jerry-ye/canvas",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "deps": {
     "peter-jerry-ye/memory": "0.7.0"
   },
   "readme": "README.md",
-  "repository": "",
+  "repository": "https://github.com/peter-jerry-ye/canvas",
   "license": "Apache-2.0",
   "keywords": [],
-  "description": ""
+  "description": "(WIP) A Canvas binding library that allows you to draw without writing any JS code"
 }
