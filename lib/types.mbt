@@ -82,6 +82,10 @@ pub enum CanvasStrokeFillStyle {
 
 pub type KeyboardEvent
 
+pub type MouseEvent
+
+pub type WheelEvent
+
 pub type HTMLImageElement
 
 pub type HTMLCanvasElement

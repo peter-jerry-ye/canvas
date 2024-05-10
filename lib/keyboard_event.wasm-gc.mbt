@@ -28,3 +28,6 @@ fn code_ffi(self : KeyboardEvent) -> @lib.JS_String = "peter-jerry-ye:canvas/Key
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/isComposing
 pub fn is_composing(self : KeyboardEvent) -> Bool = "peter-jerry-ye:canvas/KeyboardEvent" "isComposing"
+
+/// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+pub fn prevent_default(self : KeyboardEvent) = "peter-jerry-ye:canvas/KeyboardEvent" "preventDefault"

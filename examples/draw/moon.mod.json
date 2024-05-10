@@ -1,0 +1,8 @@
+{
+  "name": "canvas-example/draw",
+  "version": "0.0.1",
+  "deps": {
+    "peter-jerry-ye/canvas": "0.1.16"
+  },
+  "license": "Apache-2.0"
+}

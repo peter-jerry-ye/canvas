@@ -17,3 +17,12 @@ pub fn set_on_key_down(callback : (KeyboardEvent) -> Unit) = "peter-jerry-ye:can
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Element/keyup_event
 pub fn set_on_key_up(callback : (KeyboardEvent) -> Unit) = "peter-jerry-ye:canvas/event" "set_onkeyup"
+
+/// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/Element/wheel_event
+pub fn set_on_wheel(callback : (WheelEvent) -> Unit) = "peter-jerry-ye:canvas/event" "set_onwheel"
+
+/// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mousemove_event
+pub fn set_on_mouse_move(callback : (MouseEvent) -> Unit) = "peter-jerry-ye:canvas/event" "set_onmousemove"
+
+/// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mouseenter_event
+pub fn set_on_mouse_enter(callback : (MouseEvent) -> Unit) = "peter-jerry-ye:canvas/event" "set_onmouseenter"

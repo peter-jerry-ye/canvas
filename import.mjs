@@ -145,7 +145,13 @@ export default function ffi(memory, eventTarget) {
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
             set_onkeydown: (callback) => { (eventTarget ?? globalThis).onkeydown = callback },
             /** @type {(callback: (_: KeyboardEvent) => void) => void} */
-            set_onkeyup: (callback) => { (eventTarget ?? globalThis).onkeyup = callback }
+            set_onkeyup: (callback) => { (eventTarget ?? globalThis).onkeyup = callback },
+            /** @type {(callback: (_: MouseEvent) => void) => void} */
+            set_onwheel: (callback) => { (eventTarget ?? globalThis).onwheel = callback },
+            /** @type {(callback: (_: MouseEvent) => void) => void} */
+            set_onmousemove: (callback) => { (eventTarget ?? globalThis).onmousemove = callback },
+            /** @type {(callback: (_: MouseEvent) => void) => void} */
+            set_onmouseenter: (callback) => { (eventTarget ?? globalThis).onmouseenter = callback },
         },
         "peter-jerry-ye:canvas/KeyboardEvent": {
             /** @type {(event: KeyboardEvent) => String} */
@@ -154,6 +160,36 @@ export default function ffi(memory, eventTarget) {
             code: (event) => event.code,
             /** @type {(event: KeyboardEvent) => Boolean} */
             isComposing: (event) => event.isComposing,
+            /** @type {(event: KeyboardEvent) => void} */
+            preventDefault: (event) => event.preventDefault(),
+        },
+        "peter-jerry-ye:canvas/MouseEvent": {
+            /** @type {(event: MouseEvent) => void} */
+            preventDefault: (event) => event.preventDefault(),
+            /** @type {(event: MouseEvent) => number} */
+            buttons: (event) => event.buttons,
+            /** @type {(event: MouseEvent) => boolean} */
+            altKey: (event) => event.altKey,
+            /** @type {(event: MouseEvent) => boolean} */
+            ctrlKey: (event) => event.ctrlKey,
+            /** @type {(event: MouseEvent) => boolean} */
+            shiftKey: (event) => event.shiftKey,
+            /** @type {(event: MouseEvent) => number} */
+            offsetX: (event) => event.offsetX,
+            /** @type {(event: MouseEvent) => number} */
+            offsetY: (event) => event.offsetY,
+        },
+        "peter-jerry-ye:canvas/WheelEvent": {
+            /** @type {(event: WheelEvent) => number} */
+            deltaX: (event) => event.deltaX,
+            /** @type {(event: WheelEvent) => number} */
+            deltaY: (event) => event.deltaY,
+            /** @type {(event: WheelEvent) => number} */
+            deltaZ: (event) => event.deltaZ,
+            /** @type {(event: WheelEvent) => number} */
+            deltaMode: (event) => event.deltaMode,
+            /** @type {(event: WheelEvent) => void} */
+            preventDefault: (event) => event.preventDefault(),
         },
         spectest: {
             print_char: log
