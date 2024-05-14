@@ -13,7 +13,7 @@
 //  limitations under the License.
 let state : GameState = {
   grid: Array::make(grid_row_count * grid_col_count, Default),
-  body: @deque.Deque::[],
+  body: @devec.Devec::[],
   dir: Up,
 }
 
