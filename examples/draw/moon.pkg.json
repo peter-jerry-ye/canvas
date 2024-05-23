@@ -9,7 +9,8 @@
         "wasm-gc": {
             "exports": [
                 "entry"
-            ]
+            ],
+            "export-memory-name": "moonbit.memory"
         }
     }
 }
