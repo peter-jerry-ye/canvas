@@ -11,7 +11,7 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-import ffi from './.mooncakes/peter-jerry-ye/canvas/import.mjs';
+import importObject from './.mooncakes/peter-jerry-ye/canvas/import.mjs';
 const canvas = (document.getElementById("canvas"));
 const context = canvas?.getContext("2d")
 if (!canvas || !context) {
@@ -25,13 +25,11 @@ canvas.height = HEIGHT
 
 let memory
 
-const importObject = {
-    ...ffi(() => memory),
-};
-
 WebAssembly.instantiateStreaming(fetch("target/wasm-gc/release/build/counter.wasm"), importObject).then(
     (obj) => {
-        memory = (obj.instance.exports["moonbit.memory"]);
+        globalThis["peter-jerry-ye:canvas"] = {
+            memory: (obj.instance.exports["moonbit.memory"])
+        };
         obj.instance.exports._start();
         obj.instance.exports.entry(context);
     }

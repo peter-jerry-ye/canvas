@@ -10,7 +10,7 @@
             "exports": [
                 "entry"
             ],
-            "export-memory-name": "moonbit.memory"
+            "export-memory-name": "memory"
         }
     }
 }

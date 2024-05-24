@@ -12,7 +12,8 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import ffi from './import.mjs';
+// @ts-check
+import importObject from './import.mjs';
 class MoonBitCanvas extends HTMLCanvasElement {
     constructor() {
         super();
@@ -20,14 +21,16 @@ class MoonBitCanvas extends HTMLCanvasElement {
         this.tabIndex = -1; // make it focusable
         if (wasm_url) {
             const context = this.getContext("2d")
-            let memory
-            const importObject = {
-                ...ffi(() => memory, this)
-            };
             WebAssembly.instantiateStreaming(fetch(wasm_url), importObject).then(
                 (obj) => {
-                    memory = (obj.instance.exports["moonbit.memory"]);
+                    globalThis["peter-jerry-ye:canvas"] = {
+                        eventTarget: this,
+                        memory: obj.instance.exports["memory"]
+                    };
+
+                    // @ts-ignore
                     obj.instance.exports._start();
+                    // @ts-ignore
                     obj.instance.exports.entry(context, new Date().getTime());
                 }
             )
