@@ -11,7 +11,7 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-type JS_String
+pub type JS_String
 
 fn string_load_ffi(offset : Int, length : Int) -> JS_String = "peter-jerry-ye:canvas/String" "load"
 
