@@ -2,7 +2,9 @@
   "name": "canvas-example/draw",
   "version": "0.0.1",
   "deps": {
-    "peter-jerry-ye/canvas": "0.2.0"
+    "peter-jerry-ye/canvas": {
+      "path": "../.."
+    }
   },
   "license": "Apache-2.0"
 }
