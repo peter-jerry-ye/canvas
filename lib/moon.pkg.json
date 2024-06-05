@@ -4,5 +4,6 @@
       "path": "peter-jerry-ye/canvas/lib/js",
       "alias": "lib"
     }
-  ]
+  ],
+  "link": true
 }
