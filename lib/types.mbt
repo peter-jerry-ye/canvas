@@ -35,27 +35,27 @@ pub type Path2D
 pub enum CanvasLineJoin {
   Bevel
   Miter
-  Round
+  RoundJoin
 }
 
 pub fn to_string(self : CanvasLineJoin) -> String {
   match self {
     Bevel => "bevel"
     Miter => "miter"
-    Round => "round"
+    RoundJoin => "round"
   }
 }
 
 pub enum CanavsLineCap {
   Butt
-  Round
+  RoundCap
   Square
 }
 
 pub fn to_string(self : CanavsLineCap) -> String {
   match self {
     Butt => "butt"
-    Round => "round"
+    RoundCap => "round"
     Square => "square"
   }
 }

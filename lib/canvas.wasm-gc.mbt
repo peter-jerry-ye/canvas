@@ -179,7 +179,7 @@ fn get_line_cap_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas/
 pub fn get_line_cap(self : Canvas2D) -> CanavsLineCap {
   match @lib.JS_String::to_string(self.get_line_cap_ffi()).unwrap() {
     "butt" => CanavsLineCap::Butt
-    "round" => CanavsLineCap::Round
+    "round" => CanavsLineCap::RoundCap
     "square" => CanavsLineCap::Square
     _ => abort("Invalid line cap value.")
   }
@@ -196,10 +196,10 @@ fn get_line_join_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
 /// 
-/// `join` is one of : "round" "bevel" "miter
+/// `join` is one of : "round" "bevel" "miterg
 pub fn get_line_join(self : Canvas2D) -> CanvasLineJoin {
   match get_line_join_ffi(self).to_string().unwrap() {
-    "round" => CanvasLineJoin::Round
+    "round" => CanvasLineJoin::RoundJoin
     "bevel" => CanvasLineJoin::Bevel
     "miter" => CanvasLineJoin::Miter
     _ => abort("Invalid line join value.")
