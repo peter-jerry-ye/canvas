@@ -29,8 +29,6 @@ class MoonBitCanvas extends HTMLCanvasElement {
                     };
 
                     // @ts-ignore
-                    obj.instance.exports._start();
-                    // @ts-ignore
                     obj.instance.exports.entry(context, new Date().getTime());
                 }
             )

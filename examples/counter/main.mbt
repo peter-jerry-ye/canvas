@@ -18,7 +18,7 @@ let cumul : Ref[Int64] = { val: 0L }
 
 let pause : Ref[Bool] = { val: false }
 
-fn init {
+pub fn entry(canvas : @lib.Canvas2D) -> Unit {
   @lib.set_on_key_down(
     fn(event) {
       match event.code() {
@@ -32,9 +32,6 @@ fn init {
       }
     },
   )
-}
-
-pub fn entry(canvas : @lib.Canvas2D) -> Unit {
   fn update(time : Int64) {
     if pause.val.not() {
       if last.val > 0L {

@@ -46,7 +46,7 @@ struct Position {
 
 struct GameState {
   grid : Array[GridType]
-  body : @devec.Devec[Position]
+  body : @deque.Deque[Position]
   mut dir : Direction
 }
 
@@ -75,8 +75,8 @@ fn generate_Food(self : GameState) -> Unit {
     let (i, seed) = random_lcg(random.val)
     let (j, seed) = random_lcg(seed)
     random.val = seed
-    let i = i.mod_u(20)
-    let j = j.mod_u(20)
+    let i = i.abs() % 20
+    let j = j.abs() % 20
     if self.grid[j * grid_col_count + i] == Default {
       self.setGridType({ x: i, y: j }, Food)
       queue.push({ x: i, y: j })

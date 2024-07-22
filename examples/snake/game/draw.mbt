@@ -19,7 +19,7 @@ fn body_color(grid : GridType) -> String {
   }
 }
 
-let queue : @queue.Queue[Position] = @queue.Queue::[]
+let queue : @queue.Queue[Position] = @queue.new()
 
 let border_color = "#00263f"
 
