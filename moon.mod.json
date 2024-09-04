@@ -1,8 +1,8 @@
 {
   "name": "peter-jerry-ye/canvas",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "deps": {
-    "peter-jerry-ye/memory": "0.8.2"
+    "peter-jerry-ye/memory": "0.8.3"
   },
   "readme": "README.md",
   "repository": "https://github.com/peter-jerry-ye/canvas",

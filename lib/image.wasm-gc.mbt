@@ -23,8 +23,8 @@ fn HTMLImageElement::make_width_height_ffi(
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
 pub fn HTMLImageElement::make(
-  ~width : Option[Int] = None,
-  ~height : Option[Int] = None
+  ~width : Int? = None,
+  ~height : Int? = None
 ) -> HTMLImageElement {
   match width {
     None => make_ffi()
@@ -43,5 +43,5 @@ pub fn HTMLImageElement::set_src(
   image : HTMLImageElement,
   src : String
 ) -> Unit {
-  set_src_ffi(image, @lib.JS_String::from_string(src).unwrap())
+  set_src_ffi(image, @lib.JS_String::from_string(src))
 }

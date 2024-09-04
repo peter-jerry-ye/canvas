@@ -13,33 +13,28 @@
 //  limitations under the License.
 pub type JS_double_array
 
-pub fn JS_double_array::from_array(
-  arr : Array[Double]
-) -> Option[JS_double_array] {
-  let memory = @memory.allocate(arr.length() * 8)?
+pub fn JS_double_array::from_array(arr : Array[Double]) -> JS_double_array {
+  let memory = @memory.allocate(arr.length() * 8).unwrap()
   for i = 0; i < arr.length(); i = i + 1 {
-    memory.store64(i * 8, arr[i].reinterpret_as_i64())?
+    memory.store64(i * 8, arr[i].reinterpret_as_i64()).unwrap()
   }
   let array = float64_array_load_ffi(memory.offset, memory.length)
-  memory.free()?
-  Some(array)
+  memory.free().unwrap()
+  array
 }
 
-pub fn JS_double_array::to_array(
-  arr : JS_double_array
-) -> Option[Array[Double]] {
-  println(arr.length())
+pub fn JS_double_array::to_array(arr : JS_double_array) -> Array[Double] {
   if arr.length() == 0 {
-    Some([])
+    []
   } else {
-    let memory = @memory.allocate(arr.length() * 8)?
+    let memory = @memory.allocate(arr.length() * 8).unwrap()
     float64_array_store_ffi(arr, memory.offset)
     let array = Array::make(arr.length(), 0.0)
     for i = 0; i < arr.length(); i = i + 1 {
-      array[i] = memory.load64(i * 8)?.reinterpret_as_double()
+      array[i] = memory.load64(i * 8).unwrap().reinterpret_as_double()
     }
-    memory.free()?
-    Some(array)
+    memory.free().unwrap()
+    array
   }
 }
 

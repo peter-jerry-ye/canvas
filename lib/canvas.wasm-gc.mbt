@@ -56,7 +56,7 @@ fn stroke_ffi(self : Canvas2D) = "peter-jerry-ye:canvas/Canvas2D" "stroke"
 fn stroke_path_ffi(self : Canvas2D, path : Path2D) = "peter-jerry-ye:canvas/Canvas2D" "stroke"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/stroke
-pub fn stroke(self : Canvas2D, ~path : Option[Path2D] = None) -> Unit {
+pub fn stroke(self : Canvas2D, ~path : Path2D? = None) -> Unit {
   match path {
     None => self.stroke_ffi()
     Some(path) => self.stroke_path_ffi(path)
@@ -78,20 +78,18 @@ fn fill_path_fillRule_ffi(
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fill
 pub fn fill(
   self : Canvas2D,
-  ~path : Option[Path2D] = None,
-  ~fillRule : Option[CanvasFillRule] = None
+  ~path : Path2D? = None,
+  ~fillRule : CanvasFillRule? = None
 ) -> Unit {
   match (path, fillRule) {
     (None, None) => self.fill_ffi()
     (Some(path), None) => self.fill_path_ffi(path)
     (None, Some(fillRule)) =>
-      self.fill_fillRule_ffi(
-        @lib.JS_String::from_string(fillRule.to_string()).unwrap(),
-      )
+      self.fill_fillRule_ffi(@lib.JS_String::from_string(fillRule.to_string()))
     (Some(path), Some(fillRule)) =>
       self.fill_path_fillRule_ffi(
         path,
-        @lib.JS_String::from_string(fillRule.to_string()).unwrap(),
+        @lib.JS_String::from_string(fillRule.to_string()),
       )
   }
 }
@@ -117,13 +115,13 @@ pub fn fill_text(
   text : String,
   x : Double,
   y : Double,
-  ~max_width : Option[Double] = None
+  ~max_width : Double? = None
 ) -> Unit {
   match max_width {
-    None => self.fill_text_ffi(@lib.JS_String::from_string(text).unwrap(), x, y)
+    None => self.fill_text_ffi(@lib.JS_String::from_string(text), x, y)
     Some(max_width) =>
       self.fill_text_maxwidth_ffi(
-        @lib.JS_String::from_string(text).unwrap(),
+        @lib.JS_String::from_string(text),
         x,
         y,
         max_width,
@@ -152,14 +150,13 @@ pub fn stroke_text(
   text : String,
   x : Double,
   y : Double,
-  ~max_width : Option[Double] = None
+  ~max_width : Double? = None
 ) -> Unit {
   match max_width {
-    None =>
-      self.stroke_text_ffi(@lib.JS_String::from_string(text).unwrap(), x, y)
+    None => self.stroke_text_ffi(@lib.JS_String::from_string(text), x, y)
     Some(max_width) =>
       self.stroke_text_maxwidth_ffi(
-        @lib.JS_String::from_string(text).unwrap(),
+        @lib.JS_String::from_string(text),
         x,
         y,
         max_width,
@@ -177,7 +174,7 @@ fn get_line_cap_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas/
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
 pub fn get_line_cap(self : Canvas2D) -> CanavsLineCap {
-  match @lib.JS_String::to_string(self.get_line_cap_ffi()).unwrap() {
+  match @lib.JS_String::to_string(self.get_line_cap_ffi()) {
     "butt" => CanavsLineCap::Butt
     "round" => CanavsLineCap::Round
     "square" => CanavsLineCap::Square
@@ -189,7 +186,7 @@ fn set_line_cap_ffi(self : Canvas2D, cap : @lib.JS_String) = "peter-jerry-ye:can
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
 pub fn set_line_cap(self : Canvas2D, cap : CanavsLineCap) -> Unit {
-  self.set_line_cap_ffi(@lib.JS_String::from_string(cap.to_string()).unwrap())
+  self.set_line_cap_ffi(@lib.JS_String::from_string(cap.to_string()))
 }
 
 fn get_line_join_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas/Canvas2D" "get_lineJoin"
@@ -198,7 +195,7 @@ fn get_line_join_ffi(self : Canvas2D) -> @lib.JS_String = "peter-jerry-ye:canvas
 /// 
 /// `join` is one of : "round" "bevel" "miter
 pub fn get_line_join(self : Canvas2D) -> CanvasLineJoin {
-  match get_line_join_ffi(self).to_string().unwrap() {
+  match get_line_join_ffi(self).to_string() {
     "round" => CanvasLineJoin::Round
     "bevel" => CanvasLineJoin::Bevel
     "miter" => CanvasLineJoin::Miter
@@ -212,7 +209,7 @@ fn set_line_join_ffi(self : Canvas2D, join : @lib.JS_String) = "peter-jerry-ye:c
 /// 
 /// `join` is one of : "round" "bevel" "miter"
 pub fn set_line_join(self : Canvas2D, join : CanvasLineJoin) -> Unit {
-  self.set_line_join_ffi(@lib.JS_String::from_string(join.to_string()).unwrap())
+  self.set_line_join_ffi(@lib.JS_String::from_string(join.to_string()))
 }
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/miterLimit
@@ -225,14 +222,14 @@ fn get_line_dash_ffi(self : Canvas2D) -> @lib.JS_double_array = "peter-jerry-ye:
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getLineDash
 pub fn get_line_dash(self : Canvas2D) -> Array[Double] {
-  self.get_line_dash_ffi().to_array().unwrap()
+  self.get_line_dash_ffi().to_array()
 }
 
 fn set_line_dash_ffi(self : Canvas2D, segments : @lib.JS_double_array) = "peter-jerry-ye:canvas/Canvas2D" "setLineDash"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
 pub fn set_line_dash(self : Canvas2D, segments : Array[Double]) -> Unit {
-  self.set_line_dash_ffi(@lib.JS_double_array::from_array(segments).unwrap())
+  self.set_line_dash_ffi(@lib.JS_double_array::from_array(segments))
 }
 
 fn set_stroke_style_color_ffi(self : Canvas2D, color : @lib.JS_String) = "peter-jerry-ye:canvas/Canvas2D" "set_stroke_style"
@@ -247,9 +244,7 @@ fn set_stroke_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "pet
 pub fn set_stroke_style(self : Canvas2D, style : CanvasStrokeFillStyle) -> Unit {
   match style {
     Color(color) =>
-      self.set_stroke_style_color_ffi(
-        @lib.JS_String::from_string(color).unwrap(),
-      )
+      self.set_stroke_style_color_ffi(@lib.JS_String::from_string(color))
     Gradient(gradient) => self.set_stroke_style_gradient_ffi(gradient)
     Pattern(pattern) => self.set_stroke_style_pattern_ffi(pattern)
   }
@@ -267,7 +262,7 @@ fn set_fill_style_pattern_ffi(self : Canvas2D, pattern : CanvasPattern) = "peter
 pub fn set_fill_style(self : Canvas2D, style : CanvasStrokeFillStyle) -> Unit {
   match style {
     Color(color) =>
-      self.set_fill_style_color_ffi(@lib.JS_String::from_string(color).unwrap())
+      self.set_fill_style_color_ffi(@lib.JS_String::from_string(color))
     Gradient(gradient) => self.set_fill_style_gradient_ffi(gradient)
     Pattern(pattern) => self.set_fill_style_pattern_ffi(pattern)
   }
@@ -277,7 +272,7 @@ fn set_font_ffi(self : Canvas2D, font : @lib.JS_String) = "peter-jerry-ye:canvas
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font
 pub fn set_font(self : Canvas2D, font : String) -> Unit {
-  self.set_font_ffi(@lib.JS_String::from_string(font).unwrap())
+  self.set_font_ffi(@lib.JS_String::from_string(font))
 }
 
 fn draw_image_html_image_element_ffi(

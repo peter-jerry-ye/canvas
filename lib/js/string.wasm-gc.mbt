@@ -23,24 +23,24 @@ pub fn log(self : JS_String) = "peter-jerry-ye:canvas/String" "log"
 
 pub fn JS_String::empty() -> JS_String = "peter-jerry-ye:canvas/String" "empty"
 
-pub fn JS_String::from_string(str : String) -> Option[JS_String] {
+pub fn JS_String::from_string(str : String) -> JS_String {
   if str.length() == 0 {
-    return Some(JS_String::empty())
+    return JS_String::empty()
   }
-  let memory = @memory.allocate(str.length() * 2)?
+  let memory = @memory.allocate(str.length() * 2).unwrap()
   memory.store_bytes(str.to_bytes())
   let str = string_load_ffi(memory.offset, str.length())
-  memory.free()?
-  Some(str)
+  memory.free().unwrap()
+  str
 }
 
-pub fn JS_String::to_string(str : JS_String) -> Option[String] {
+pub fn JS_String::to_string(str : JS_String) -> String {
   if str.length() == 0 {
-    return Some("")
+    return ""
   }
-  let memory = @memory.allocate(str.length() * 2)?
+  let memory = @memory.allocate(str.length() * 2).unwrap()
   string_store_ffi(str, memory.offset)
   let str = memory.load_bytes().to_string()
-  memory.free()?
-  Some(str)
+  memory.free().unwrap()
+  str
 }

@@ -14,14 +14,14 @@
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
 pub fn key(self : KeyboardEvent) -> String {
-  key_ffi(self).to_string().unwrap()
+  key_ffi(self).to_string()
 }
 
 fn key_ffi(self : KeyboardEvent) -> @lib.JS_String = "peter-jerry-ye:canvas/KeyboardEvent" "key"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
 pub fn code(self : KeyboardEvent) -> String {
-  code_ffi(self).to_string().unwrap()
+  code_ffi(self).to_string()
 }
 
 fn code_ffi(self : KeyboardEvent) -> @lib.JS_String = "peter-jerry-ye:canvas/KeyboardEvent" "code"
