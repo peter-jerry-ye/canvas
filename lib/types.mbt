@@ -15,24 +15,24 @@
 /// CanvasRenderingContext2D
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-pub type Canvas2D
+pub(all) type Canvas2D
 
 /// CanvasPattern
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern
-pub type CanvasPattern
+pub(all) type CanvasPattern
 
 /// CanvasGradient
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient
-pub type CanvasGradient
+pub(all) type CanvasGradient
 
 /// Path2D
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Path2D
-pub type Path2D
+pub(all) type Path2D
 
-pub enum CanvasLineJoin {
+pub(all) enum CanvasLineJoin {
   Bevel
   Miter
   Round
@@ -46,7 +46,7 @@ pub fn to_string(self : CanvasLineJoin) -> String {
   }
 }
 
-pub enum CanavsLineCap {
+pub(all) enum CanavsLineCap {
   Butt
   Round
   Square
@@ -61,7 +61,7 @@ pub fn to_string(self : CanavsLineCap) -> String {
 }
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fill
-pub enum CanvasFillRule {
+pub(all) enum CanvasFillRule {
   Nonzero
   Evenodd
 }
@@ -74,23 +74,23 @@ pub fn to_string(self : CanvasFillRule) -> String {
 }
 
 /// String | CanvasGradient | CanvasPattern
-pub enum CanvasStrokeFillStyle {
+pub(all) enum CanvasStrokeFillStyle {
   Color(String)
   Gradient(CanvasGradient)
   Pattern(CanvasPattern)
 }
 
-pub type KeyboardEvent
+pub(all) type KeyboardEvent
 
-pub type MouseEvent
+pub(all) type MouseEvent
 
-pub type WheelEvent
+pub(all) type WheelEvent
 
-pub type HTMLImageElement
+pub(all) type HTMLImageElement
 
-pub type HTMLCanvasElement
+pub(all) type HTMLCanvasElement
 
-pub enum CanvasImageSource {
+pub(all) enum CanvasImageSource {
   HTMLImageElement(HTMLImageElement)
   HTMLCanvasElement(HTMLCanvasElement)
 }

@@ -23,8 +23,8 @@ fn HTMLImageElement::make_width_height_ffi(
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
 pub fn HTMLImageElement::make(
-  ~width : Int? = None,
-  ~height : Int? = None
+  width~ : Int? = None,
+  height~ : Int? = None
 ) -> HTMLImageElement {
   match width {
     None => make_ffi()

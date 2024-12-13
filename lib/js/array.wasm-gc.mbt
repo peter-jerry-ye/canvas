@@ -11,15 +11,12 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-pub type JS_double_array
+pub(readonly) type JS_double_array
 
 pub fn JS_double_array::from_array(arr : Array[Double]) -> JS_double_array {
-  let memory = @memory.allocate(arr.length() * 8).unwrap()
-  for i = 0; i < arr.length(); i = i + 1 {
-    memory.store64(i * 8, arr[i].reinterpret_as_i64()).unwrap()
-  }
-  let array = float64_array_load_ffi(memory.offset, memory.length)
-  memory.free().unwrap()
+  let memory = @memory.double_array2ptr(FixedArray::from_array(arr))
+  let array = float64_array_load_ffi(memory, arr.length() * 8)
+  @memory.free(memory)
   array
 }
 
@@ -27,14 +24,11 @@ pub fn JS_double_array::to_array(arr : JS_double_array) -> Array[Double] {
   if arr.length() == 0 {
     []
   } else {
-    let memory = @memory.allocate(arr.length() * 8).unwrap()
-    float64_array_store_ffi(arr, memory.offset)
-    let array = Array::make(arr.length(), 0.0)
-    for i = 0; i < arr.length(); i = i + 1 {
-      array[i] = memory.load64(i * 8).unwrap().reinterpret_as_double()
-    }
-    memory.free().unwrap()
-    array
+    let memory = @memory.malloc(arr.length() * 8)
+    float64_array_store_ffi(arr, memory)
+    let array = @memory.ptr2double_array(memory, arr.length() * 8)
+    @memory.free(memory)
+    Array::from_fixed_array(array)
   }
 }
 

@@ -14,4 +14,4 @@ See `examples/`. 参考`examples/`中的例子。
 
 - `moon build --source-dir examples/draw` ; `moon build --source-dir examples/snake`
 - `python3 -m http.server 8080`
-- <localhost:8080/examples/draw> ; <localhost:8080/examples/snake>
+- <http://localhost:8080/examples/draw> ; <http://localhost:8080/examples/snake>

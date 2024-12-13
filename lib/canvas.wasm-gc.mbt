@@ -56,7 +56,7 @@ fn stroke_ffi(self : Canvas2D) = "peter-jerry-ye:canvas/Canvas2D" "stroke"
 fn stroke_path_ffi(self : Canvas2D, path : Path2D) = "peter-jerry-ye:canvas/Canvas2D" "stroke"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/stroke
-pub fn stroke(self : Canvas2D, ~path : Path2D? = None) -> Unit {
+pub fn stroke(self : Canvas2D, path~ : Path2D? = None) -> Unit {
   match path {
     None => self.stroke_ffi()
     Some(path) => self.stroke_path_ffi(path)
@@ -78,8 +78,8 @@ fn fill_path_fillRule_ffi(
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fill
 pub fn fill(
   self : Canvas2D,
-  ~path : Path2D? = None,
-  ~fillRule : CanvasFillRule? = None
+  path~ : Path2D? = None,
+  fillRule~ : CanvasFillRule? = None
 ) -> Unit {
   match (path, fillRule) {
     (None, None) => self.fill_ffi()
@@ -115,7 +115,7 @@ pub fn fill_text(
   text : String,
   x : Double,
   y : Double,
-  ~max_width : Double? = None
+  max_width~ : Double? = None
 ) -> Unit {
   match max_width {
     None => self.fill_text_ffi(@lib.JS_String::from_string(text), x, y)
@@ -150,7 +150,7 @@ pub fn stroke_text(
   text : String,
   x : Double,
   y : Double,
-  ~max_width : Double? = None
+  max_width~ : Double? = None
 ) -> Unit {
   match max_width {
     None => self.stroke_text_ffi(@lib.JS_String::from_string(text), x, y)
