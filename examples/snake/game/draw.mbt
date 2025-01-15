@@ -24,7 +24,7 @@ let queue : @queue.T[Position] = @queue.new()
 let border_color = "#00263f"
 
 fn draw(canvas : @canvas.Canvas2D, snake : GameState) -> Unit {
-  while queue.is_empty().not() {
+  while not(queue.is_empty()) {
     let position = queue.unsafe_pop()
     match snake.grid[position.y * grid_col_count + position.x] {
       Body | Food as a => {

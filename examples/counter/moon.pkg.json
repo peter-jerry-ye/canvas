@@ -1,6 +1,6 @@
 {
     "import": [
-        "peter-jerry-ye/canvas/lib"
+        { "alias": "lib", "path": "peter-jerry-ye/canvas" }
     ],
     "link": {
         "wasm-gc": {

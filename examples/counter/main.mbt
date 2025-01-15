@@ -22,7 +22,7 @@ pub fn entry(canvas : @lib.Canvas2D) -> Unit {
   @lib.set_on_key_down(
     fn(event) {
       match event.code() {
-        "Space" => pause.val = pause.val.not()
+        "Space" => pause.val = not(pause.val)
         "Enter" => {
           pause.val = false
           last.val = 0L
@@ -33,7 +33,7 @@ pub fn entry(canvas : @lib.Canvas2D) -> Unit {
     },
   )
   fn update(time : Int64) {
-    if pause.val.not() {
+    if not(pause.val) {
       if last.val > 0L {
         cumul.val += time - last.val
         canvas.set_font("20px Arial")

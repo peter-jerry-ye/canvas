@@ -11,7 +11,7 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-pub(readonly) type JS_double_array
+pub type JS_double_array
 
 pub fn JS_double_array::from_array(arr : Array[Double]) -> JS_double_array {
   let memory = @memory.double_array2ptr(FixedArray::from_array(arr))

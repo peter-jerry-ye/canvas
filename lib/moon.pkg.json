@@ -1,7 +1,7 @@
 {
   "import": [
     {
-      "path": "peter-jerry-ye/canvas/lib/js",
+      "path": "peter-jerry-ye/canvas/js",
       "alias": "lib"
     }
   ],
