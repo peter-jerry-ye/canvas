@@ -15,22 +15,22 @@
 /// CanvasRenderingContext2D
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-pub(all) type Canvas2D
+pub(all) extern type Canvas2D
 
 /// CanvasPattern
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern
-pub(all) type CanvasPattern
+pub(all) extern type CanvasPattern
 
 /// CanvasGradient
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient
-pub(all) type CanvasGradient
+pub(all) extern type CanvasGradient
 
 /// Path2D
 /// 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Path2D
-pub(all) type Path2D
+pub(all) extern type Path2D
 
 pub(all) enum CanvasLineJoin {
   Bevel
@@ -80,15 +80,15 @@ pub(all) enum CanvasStrokeFillStyle {
   Pattern(CanvasPattern)
 }
 
-pub(all) type KeyboardEvent
+pub(all) extern type KeyboardEvent
 
-pub(all) type MouseEvent
+pub(all) extern type MouseEvent
 
-pub(all) type WheelEvent
+pub(all) extern type WheelEvent
 
-pub(all) type HTMLImageElement
+pub(all) extern type HTMLImageElement
 
-pub(all) type HTMLCanvasElement
+pub(all) extern type HTMLCanvasElement
 
 pub(all) enum CanvasImageSource {
   HTMLImageElement(HTMLImageElement)
