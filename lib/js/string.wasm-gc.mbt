@@ -12,7 +12,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 ///|
-pub(all) type JS_String
+pub(all) extern type JS_String
 
 ///|
 fn string_load_ffi(offset : Int, length : Int) -> JS_String = "peter-jerry-ye:canvas/String" "load"
