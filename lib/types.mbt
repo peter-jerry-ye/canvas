@@ -52,7 +52,7 @@ pub(all) enum CanavsLineCap {
   Square
 }
 
-pub fn to_string(self : CanavsLineCap) -> String {
+pub fn CanavsLineCap::to_string(self : CanavsLineCap) -> String {
   match self {
     Butt => "butt"
     Round => "round"
@@ -66,7 +66,7 @@ pub(all) enum CanvasFillRule {
   Evenodd
 }
 
-pub fn to_string(self : CanvasFillRule) -> String {
+pub fn CanvasFillRule::to_string(self : CanvasFillRule) -> String {
   match self {
     Nonzero => "nonzero"
     Evenodd => "evenodd"

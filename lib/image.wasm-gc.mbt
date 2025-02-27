@@ -27,11 +27,11 @@ pub fn HTMLImageElement::make(
   height~ : Int? = None
 ) -> HTMLImageElement {
   match width {
-    None => make_ffi()
+    None => HTMLImageElement::make_ffi()
     Some(w) =>
       match height {
-        None => make_width_ffi(w)
-        Some(h) => make_width_height_ffi(w, h)
+        None => HTMLImageElement::make_width_ffi(w)
+        Some(h) => HTMLImageElement::make_width_height_ffi(w, h)
       }
   }
 }

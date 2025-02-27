@@ -13,16 +13,16 @@
 //  limitations under the License.
 
 /// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent/deltaX
-pub fn delta_x(self : WheelEvent) -> Double = "peter-jerry-ye:canvas/WheelEvent" "deltaX"
+pub fn WheelEvent::delta_x(self : WheelEvent) -> Double = "peter-jerry-ye:canvas/WheelEvent" "deltaX"
 
 /// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent/deltaY
-pub fn delta_y(self : WheelEvent) -> Double = "peter-jerry-ye:canvas/WheelEvent" "deltaY"
+pub fn WheelEvent::delta_y(self : WheelEvent) -> Double = "peter-jerry-ye:canvas/WheelEvent" "deltaY"
 
 /// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent/deltaZ
-pub fn delta_z(self : WheelEvent) -> Double = "peter-jerry-ye:canvas/WheelEvent" "deltaZ"
+pub fn WheelEvent::delta_z(self : WheelEvent) -> Double = "peter-jerry-ye:canvas/WheelEvent" "deltaZ"
 
 /// Reference: https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent/deltaMode
-pub fn delta_mode(self : WheelEvent) -> Int = "peter-jerry-ye:canvas/WheelEvent" "deltaMode"
+pub fn WheelEvent::delta_mode(self : WheelEvent) -> Int = "peter-jerry-ye:canvas/WheelEvent" "deltaMode"
 
 /// Reference: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
-pub fn prevent_default(self : WheelEvent) = "peter-jerry-ye:canvas/WheelEvent" "preventDefault"
+pub fn WheelEvent::prevent_default(self : WheelEvent) = "peter-jerry-ye:canvas/WheelEvent" "preventDefault"
