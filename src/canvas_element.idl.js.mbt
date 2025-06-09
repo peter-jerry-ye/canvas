@@ -37,3 +37,10 @@ extern "js" fn __gen_ffi__set_prop_onmousemove__HTMLCanvasElement__set_on_mouse_
 ) =
   #|(self, arg) => { self["onmousemove"] = arg }
 
+pub let htmlCanvasElement : @js.Value = __gen_ffi_set_globalThis_HTMLCanvasElement__htmlCanvasElement()
+  |> @js.Value::cast
+
+extern "js" fn __gen_ffi_set_globalThis_HTMLCanvasElement__htmlCanvasElement() ->
+     @js.Value =
+  #|() => globalThis["HTMLCanvasElement"]
+

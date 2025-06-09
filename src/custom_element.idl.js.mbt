@@ -12,7 +12,7 @@ pub fn define(
     self |> @js.Value::cast_from,
     name |> @js.Value::cast_from,
     constructor |> @js.Value::cast_from,
-    options |> @js.Value::cast_from,
+    options |> @js.Optional::from_option |> @js.Value::cast_from,
   )
 }
 

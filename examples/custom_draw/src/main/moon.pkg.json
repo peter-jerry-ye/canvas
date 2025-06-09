@@ -1,0 +1,7 @@
+{
+  "is-main": true,
+  "import": [
+    "peter-jerry-ye/canvas_js",
+    "rami3l/js-ffi/js"
+  ]
+}

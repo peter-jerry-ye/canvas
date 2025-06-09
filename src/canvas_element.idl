@@ -6,3 +6,6 @@ pub fn HTMLCanvasElement::get_context(canvas : Self, context~ : String = "2d") -
 
 #js.gen(property, prop, "onmousemove")
 pub fn HTMLCanvasElement::set_on_mouse_move(canvas : Self, f : (MouseEvent) -> Unit) -> Unit
+
+#js.gen(property, "HTMLCanvasElement")
+pub let htmlCanvasElement: @js.Value
