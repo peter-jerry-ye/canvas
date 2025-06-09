@@ -1,5 +1,10 @@
 {
   "import": [
-    "username/hello/lib"
-  ]
+    "rami3l/js-ffi/js"
+  ],
+  "targets": {
+    "*.js.mbt": [
+      "js"
+    ]
+  }
 }

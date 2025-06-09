@@ -1,0 +1,16 @@
+extern type CanvasRendering2D
+
+#js.gen(property, prop, "strokeStyle")
+pub fn CanvasRendering2D::set_stroke_style(canvas : Self, color : String) -> Unit
+
+#js.gen(function, prop, "beginPath")
+pub fn CanvasRendering2D::begin_path(canvas : Self) -> Unit
+
+#js.gen(function, prop, "moveTo")
+pub fn CanvasRendering2D::move_to(canvas : Self, x : Double, y : Double) -> Unit
+
+#js.gen(function, prop, "lineTo")
+pub fn CanvasRendering2D::line_to(canvas : Self, x : Double, y : Double) -> Unit
+
+#js.gen(function, prop, "stroke")
+pub fn CanvasRendering2D::stroke(canvas : Self) -> Unit

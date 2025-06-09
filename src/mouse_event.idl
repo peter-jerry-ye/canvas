@@ -1,0 +1,10 @@
+extern type MouseEvent
+
+#js.gen(property, prop, "buttons")
+pub fn MouseEvent::buttons(event : Self) -> Int
+
+#js.gen(property, prop, "offsetX")
+pub fn MouseEvent::offset_x(event : Self) -> Double
+
+#js.gen(property, prop, "offsetY")
+pub fn MouseEvent::offset_y(event : Self) -> Double

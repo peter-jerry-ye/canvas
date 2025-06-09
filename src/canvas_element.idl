@@ -1,0 +1,8 @@
+extern type HTMLCanvasElement
+
+#js.gen(function, prop, "getContext")
+#js.gen(param, "context", optional)
+pub fn HTMLCanvasElement::get_context(canvas : Self, context~ : String = "2d") -> Option[CanvasRendering2D]
+
+#js.gen(property, prop, "onmousemove")
+pub fn HTMLCanvasElement::set_on_mouse_move(canvas : Self, f : (MouseEvent) -> Unit) -> Unit
