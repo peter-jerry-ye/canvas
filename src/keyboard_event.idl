@@ -1,0 +1,7 @@
+extern type KeyboardEvent
+
+#js.gen(property, prop, "key")
+pub fn KeyboardEvent::key(event : Self) -> String
+
+#js.gen(property, prop, "code")
+pub fn KeyboardEvent::code(event : Self) -> String

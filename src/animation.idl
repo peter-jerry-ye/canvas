@@ -1,0 +1,5 @@
+#js.gen(function, global, "window", "requestAnimationFrame")
+pub fn request_animation_frame(callback : (Double) -> Unit) -> Double
+
+#js.gen(function, global, "window", "cancelAnimationFrame")
+pub fn cancel_animation_frame(handle : Double) -> Unit

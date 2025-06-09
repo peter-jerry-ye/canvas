@@ -1,11 +1,20 @@
 extern type HTMLCanvasElement
 
+#js.gen(function, global, "document", "querySelector")
+pub fn HTMLCanvasElement::from_query(selector : String) -> Option[HTMLCanvasElement]
+
 #js.gen(function, prop, "getContext")
 #js.gen(param, "context", optional)
 pub fn HTMLCanvasElement::get_context(canvas : Self, context~ : String = "2d") -> Option[CanvasRendering2D]
 
 #js.gen(property, prop, "onmousemove")
 pub fn HTMLCanvasElement::set_on_mouse_move(canvas : Self, f : (MouseEvent) -> Unit) -> Unit
+
+#js.gen(property, prop, "onkeydown")
+pub fn HTMLCanvasElement::set_on_key_down(canvas : Self, f : (KeyboardEvent) -> Unit) -> Unit
+
+#js.gen(property, prop, "onkeyup")
+pub fn HTMLCanvasElement::set_on_key_up(canvas : Self, f : (KeyboardEvent) -> Unit) -> Unit
 
 #js.gen(property, "HTMLCanvasElement")
 pub let htmlCanvasElement: @js.Value

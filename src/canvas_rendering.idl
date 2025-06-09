@@ -14,3 +14,12 @@ pub fn CanvasRendering2D::line_to(canvas : Self, x : Double, y : Double) -> Unit
 
 #js.gen(function, prop, "stroke")
 pub fn CanvasRendering2D::stroke(canvas : Self) -> Unit
+
+#js.gen(function, prop, "fillText")
+pub fn CanvasRendering2D::fill_text(canvas : Self, text : String, x : Double, y : Double, max_width ?: Double) -> Unit
+
+#js.gen(function, prop, "clearRect")
+pub fn CanvasRendering2D::clear_rect(canvas : Self, x : Double, y : Double, width : Double, height : Double) -> Unit
+
+#js.gen(property, prop, "font")
+pub fn CanvasRendering2D::set_font(canvas : Self, font : String) -> Unit
