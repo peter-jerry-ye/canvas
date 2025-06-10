@@ -1,7 +1,26 @@
 extern type CanvasRendering2D
 
+extern type CanvasPattern
+
+extern type CanvasGradient
+
+#js.gen
+pub(all) enum CanvasFillStrokeStyles {
+  CSS(String)
+  Pattern(CanvasPattern)
+  Gradient(CanvasGradient)
+}
+
+#js.gen(property, prop, "fillStyle")
+#js.gen(param, "style", unwrap)
+pub fn CanvasRendering2D::set_fill_style(canvas : Self, style : CanvasFillStrokeStyles) -> Unit
+
 #js.gen(property, prop, "strokeStyle")
-pub fn CanvasRendering2D::set_stroke_style(canvas : Self, color : String) -> Unit
+#js.gen(param, "style", unwrap)
+pub fn CanvasRendering2D::set_stroke_style(canvas : Self, style : CanvasFillStrokeStyles) -> Unit
+
+#js.gen(property, prop, "lineWidth")
+pub fn CanvasRendering2D::set_line_width(canvas : Self, width : Double) -> Unit
 
 #js.gen(function, prop, "beginPath")
 pub fn CanvasRendering2D::begin_path(canvas : Self) -> Unit
@@ -15,6 +34,9 @@ pub fn CanvasRendering2D::line_to(canvas : Self, x : Double, y : Double) -> Unit
 #js.gen(function, prop, "stroke")
 pub fn CanvasRendering2D::stroke(canvas : Self) -> Unit
 
+#js.gen(function, prop, "fillRect")
+pub fn CanvasRendering2D::fill_rect(canvas : Self, x : Double, y : Double, width : Double, height : Double) -> Unit
+
 #js.gen(function, prop, "fillText")
 pub fn CanvasRendering2D::fill_text(canvas : Self, text : String, x : Double, y : Double, max_width ?: Double) -> Unit
 
@@ -23,3 +45,15 @@ pub fn CanvasRendering2D::clear_rect(canvas : Self, x : Double, y : Double, widt
 
 #js.gen(property, prop, "font")
 pub fn CanvasRendering2D::set_font(canvas : Self, font : String) -> Unit
+
+#js.gen(function, prop, "save")
+pub fn CanvasRendering2D::save(canvas : Self) -> Unit
+
+#js.gen(function, prop, "restore")
+pub fn CanvasRendering2D::restore(canvas : Self) -> Unit
+
+#js.gen(function, prop, "translate")
+pub fn CanvasRendering2D::translate(canvas : Self, x : Double, y : Double) -> Unit
+
+#js.gen(function, prop, "rotate")
+pub fn CanvasRendering2D::rotate(canvas : Self, angle : Double) -> Unit

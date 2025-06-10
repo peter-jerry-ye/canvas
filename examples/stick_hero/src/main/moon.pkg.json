@@ -1,0 +1,7 @@
+{
+  "is-main": true,
+  "import": [
+    "peter-jerry-ye/canvas_js",
+    "username/hello/lib"
+  ]
+}

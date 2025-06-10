@@ -16,5 +16,14 @@ pub fn HTMLCanvasElement::set_on_key_down(canvas : Self, f : (KeyboardEvent) -> 
 #js.gen(property, prop, "onkeyup")
 pub fn HTMLCanvasElement::set_on_key_up(canvas : Self, f : (KeyboardEvent) -> Unit) -> Unit
 
+#js.gen(property, prop, "onmousedown")
+pub fn HTMLCanvasElement::set_on_mouse_down(canvas : Self, f : (MouseEvent) -> Unit) -> Unit
+
+#js.gen(property, prop, "onmouseup")
+pub fn HTMLCanvasElement::set_on_mouse_up(canvas : Self, f : (MouseEvent) -> Unit) -> Unit
+
+#js.gen(property, prop, "click")
+pub fn HTMLCanvasElement::set_on_click(canvas : Self, f : (MouseEvent) -> Unit) -> Unit
+
 #js.gen(property, "HTMLCanvasElement")
 pub let htmlCanvasElement: @js.Value

@@ -85,6 +85,57 @@ extern "js" fn __gen_ffi__set_prop_onkeyup__HTMLCanvasElement__set_on_key_up(
 ) =
   #|(self, arg) => { self["onkeyup"] = arg }
 
+#js.gen(property, prop, "onmousedown")
+pub fn HTMLCanvasElement::set_on_mouse_down(
+  canvas : Self,
+  f : (MouseEvent) -> Unit
+) -> Unit {
+  __gen_ffi__set_prop_onmousedown__HTMLCanvasElement__set_on_mouse_down(
+    canvas |> @js.Value::cast_from,
+    f |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__set_prop_onmousedown__HTMLCanvasElement__set_on_mouse_down(
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, arg) => { self["onmousedown"] = arg }
+
+#js.gen(property, prop, "onmouseup")
+pub fn HTMLCanvasElement::set_on_mouse_up(
+  canvas : Self,
+  f : (MouseEvent) -> Unit
+) -> Unit {
+  __gen_ffi__set_prop_onmouseup__HTMLCanvasElement__set_on_mouse_up(
+    canvas |> @js.Value::cast_from,
+    f |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__set_prop_onmouseup__HTMLCanvasElement__set_on_mouse_up(
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, arg) => { self["onmouseup"] = arg }
+
+#js.gen(property, prop, "click")
+pub fn HTMLCanvasElement::set_on_click(
+  canvas : Self,
+  f : (MouseEvent) -> Unit
+) -> Unit {
+  __gen_ffi__set_prop_click__HTMLCanvasElement__set_on_click(
+    canvas |> @js.Value::cast_from,
+    f |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__set_prop_click__HTMLCanvasElement__set_on_click(
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, arg) => { self["click"] = arg }
+
 pub let htmlCanvasElement : @js.Value = __gen_ffi_set_globalThis_HTMLCanvasElement__htmlCanvasElement()
   |> @js.Value::cast
 

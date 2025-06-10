@@ -8,7 +8,7 @@ fn custom_canvas(this : @canvas_js.HTMLCanvasElement) -> Unit {
       let offset_y = event.offset_y()
       match last.val {
         Some((x, y)) => {
-          canvas.set_stroke_style("black")
+          canvas.set_stroke_style(CSS("black"))
           canvas.begin_path()
           canvas.move_to(x, y)
           canvas.line_to(offset_x, offset_y)
