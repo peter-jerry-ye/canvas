@@ -1,4 +1,5 @@
-extern type HTMLCanvasElement
+#external
+type HTMLCanvasElement
 
 #js.gen(function, global, "document", "querySelector")
 pub fn HTMLCanvasElement::from_query(selector : String) -> HTMLCanvasElement? {
@@ -139,7 +140,6 @@ extern "js" fn __gen_ffi__set_prop_click__HTMLCanvasElement__set_on_click(
 pub let htmlCanvasElement : @js.Value = __gen_ffi_set_globalThis_HTMLCanvasElement__htmlCanvasElement()
   |> @js.Value::cast
 
-extern "js" fn __gen_ffi_set_globalThis_HTMLCanvasElement__htmlCanvasElement() ->
-     @js.Value =
+extern "js" fn __gen_ffi_set_globalThis_HTMLCanvasElement__htmlCanvasElement() -> @js.Value =
   #|() => globalThis["HTMLCanvasElement"]
 

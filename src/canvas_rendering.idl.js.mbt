@@ -1,8 +1,11 @@
-extern type CanvasRendering2D
+#external
+type CanvasRendering2D
 
-extern type CanvasPattern
+#external
+type CanvasPattern
 
-extern type CanvasGradient
+#external
+type CanvasGradient
 
 pub(all) enum CanvasFillStrokeStyles {
   CSS(String)

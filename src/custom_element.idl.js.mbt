@@ -1,22 +1,23 @@
-extern type CustomElementRegistry
+#external
+type CustomElementRegistry
 
 #js.gen(function, prop, "define")
 #js.gen(param, "options", optional)
-pub fn define(
+pub fn define_(
   self : CustomElementRegistry,
   name : String,
-  constructor : @js.Value,
+  constructor_ : @js.Value,
   options? : CustomElementDefinitionOption
 ) -> Unit {
-  __gen_ffi__apply_prop_define__CustomElementRegistry__define(
+  __gen_ffi__apply_prop_define__CustomElementRegistry__define_(
     self |> @js.Value::cast_from,
     name |> @js.Value::cast_from,
-    constructor |> @js.Value::cast_from,
+    constructor_ |> @js.Value::cast_from,
     options |> @js.Optional::from_option |> @js.Value::cast_from,
   )
 }
 
-extern "js" fn __gen_ffi__apply_prop_define__CustomElementRegistry__define(
+extern "js" fn __gen_ffi__apply_prop_define__CustomElementRegistry__define_(
   __ : @js.Value,
   __ : @js.Value,
   __ : @js.Value,
@@ -27,11 +28,11 @@ extern "js" fn __gen_ffi__apply_prop_define__CustomElementRegistry__define(
 pub let custom_elements : CustomElementRegistry = __gen_ffi_set_globalThis_customElements__custom_elements()
   |> @js.Value::cast
 
-extern "js" fn __gen_ffi_set_globalThis_customElements__custom_elements() ->
-     @js.Value =
+extern "js" fn __gen_ffi_set_globalThis_customElements__custom_elements() -> @js.Value =
   #|() => globalThis["customElements"]
 
-extern type CustomElementDefinitionOption
+#external
+type CustomElementDefinitionOption
 
 #js.gen(constructor, global, "Object")
 pub fn CustomElementDefinitionOption::make() -> CustomElementDefinitionOption {
@@ -39,8 +40,7 @@ pub fn CustomElementDefinitionOption::make() -> CustomElementDefinitionOption {
   |> @js.Value::cast
 }
 
-extern "js" fn __gen_ffi__new_globalThis_Object__CustomElementDefinitionOption__make() ->
-     @js.Value =
+extern "js" fn __gen_ffi__new_globalThis_Object__CustomElementDefinitionOption__make() -> @js.Value =
   #|(...args) => new globalThis["Object"](...args)
 
 #js.gen(property, prop, "extends")

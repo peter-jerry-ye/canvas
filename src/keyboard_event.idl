@@ -1,4 +1,5 @@
-extern type KeyboardEvent
+#external
+type KeyboardEvent
 
 #js.gen(property, prop, "key")
 pub fn KeyboardEvent::key(event : Self) -> String

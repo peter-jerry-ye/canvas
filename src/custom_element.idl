@@ -1,13 +1,15 @@
-extern type CustomElementRegistry
+#external
+type CustomElementRegistry
 
 #js.gen(function, prop, "define")
 #js.gen(param, "options", optional)
-pub fn define(self : CustomElementRegistry, name : String, constructor: @js.Value, options?: CustomElementDefinitionOption) -> Unit
+pub fn define_(self : CustomElementRegistry, name : String, constructor_: @js.Value, options?: CustomElementDefinitionOption) -> Unit
 
 #js.gen(property, "customElements")
 pub let custom_elements : CustomElementRegistry
 
-extern type CustomElementDefinitionOption
+#external
+type CustomElementDefinitionOption
 
 #js.gen(constructor, global, "Object")
 pub fn CustomElementDefinitionOption::make() -> CustomElementDefinitionOption

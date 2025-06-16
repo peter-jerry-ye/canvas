@@ -1,4 +1,5 @@
-extern type MouseEvent
+#external
+type MouseEvent
 
 #js.gen(property, prop, "buttons")
 pub fn MouseEvent::buttons(event : Self) -> Int {

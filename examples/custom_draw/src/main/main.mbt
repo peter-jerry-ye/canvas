@@ -24,7 +24,7 @@ fn custom_canvas(this : @canvas_js.HTMLCanvasElement) -> Unit {
 }
 
 ///|
-let constructor : @js.Value = (custom_canvas |> @js.Value::cast_from).extends(
+let constructor_ : @js.Value = (custom_canvas |> @js.Value::cast_from).extends(
   @canvas_js.htmlCanvasElement,
 )
 
@@ -32,5 +32,5 @@ let constructor : @js.Value = (custom_canvas |> @js.Value::cast_from).extends(
 fn main {
   let options = @canvas_js.CustomElementDefinitionOption::make()
   options.set_extends("canvas")
-  @canvas_js.custom_elements.define("custom-canvas", constructor, options~)
+  @canvas_js.custom_elements.define_("custom-canvas", constructor_, options~)
 }
