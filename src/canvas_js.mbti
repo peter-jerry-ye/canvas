@@ -1,0 +1,87 @@
+package "peter-jerry-ye/canvas_js"
+
+import(
+  "rami3l/js-ffi/js"
+)
+
+// Values
+fn cancel_animation_frame(Double) -> Unit
+
+let custom_elements : CustomElementRegistry
+
+fn define_(CustomElementRegistry, String, @js.Value, options? : CustomElementDefinitionOption) -> Unit
+
+let document : Document
+
+let htmlCanvasElement : @js.Value
+
+fn request_animation_frame((Double) -> Unit) -> Double
+
+// Types and methods
+pub(all) enum CanvasFillStrokeStyles {
+  CSS(String)
+  Pattern(CanvasPattern)
+  Gradient(CanvasGradient)
+}
+impl @js.Cast for CanvasFillStrokeStyles
+
+type CanvasGradient
+
+type CanvasPattern
+
+type CanvasRendering2D
+fn CanvasRendering2D::begin_path(Self) -> Unit
+fn CanvasRendering2D::clear_rect(Self, Double, Double, Double, Double) -> Unit
+fn CanvasRendering2D::fill_rect(Self, Double, Double, Double, Double) -> Unit
+fn CanvasRendering2D::fill_text(Self, String, Double, Double, max_width? : Double) -> Unit
+fn CanvasRendering2D::line_to(Self, Double, Double) -> Unit
+fn CanvasRendering2D::move_to(Self, Double, Double) -> Unit
+fn CanvasRendering2D::restore(Self) -> Unit
+fn CanvasRendering2D::rotate(Self, Double) -> Unit
+fn CanvasRendering2D::save(Self) -> Unit
+fn CanvasRendering2D::set_fill_style(Self, CanvasFillStrokeStyles) -> Unit
+fn CanvasRendering2D::set_font(Self, String) -> Unit
+fn CanvasRendering2D::set_line_width(Self, Double) -> Unit
+fn CanvasRendering2D::set_stroke_style(Self, CanvasFillStrokeStyles) -> Unit
+fn CanvasRendering2D::stroke(Self) -> Unit
+fn CanvasRendering2D::translate(Self, Double, Double) -> Unit
+
+type CustomElementDefinitionOption
+fn CustomElementDefinitionOption::make() -> Self
+fn CustomElementDefinitionOption::set_extends(Self, String) -> Unit
+
+type CustomElementRegistry
+fn CustomElementRegistry::define_(Self, String, @js.Value, options? : CustomElementDefinitionOption) -> Unit
+
+type Document
+fn Document::create_element(Self, String) -> @js.Value
+fn Document::create_image_element(Self) -> HTMLImageElement
+fn Document::query_selector(Self, String) -> @js.Value?
+
+type HTMLCanvasElement
+fn HTMLCanvasElement::from_query(String) -> Self?
+fn HTMLCanvasElement::get_context(Self, context~ : String = ..) -> CanvasRendering2D?
+fn HTMLCanvasElement::set_on_click(Self, (MouseEvent) -> Unit) -> Unit
+fn HTMLCanvasElement::set_on_key_down(Self, (KeyboardEvent) -> Unit) -> Unit
+fn HTMLCanvasElement::set_on_key_up(Self, (KeyboardEvent) -> Unit) -> Unit
+fn HTMLCanvasElement::set_on_mouse_down(Self, (MouseEvent) -> Unit) -> Unit
+fn HTMLCanvasElement::set_on_mouse_move(Self, (MouseEvent) -> Unit) -> Unit
+fn HTMLCanvasElement::set_on_mouse_up(Self, (MouseEvent) -> Unit) -> Unit
+
+#external
+pub type HTMLImageElement
+fn HTMLImageElement::set_src(Self, String) -> Unit
+
+type KeyboardEvent
+fn KeyboardEvent::code(Self) -> String
+fn KeyboardEvent::key(Self) -> String
+
+type MouseEvent
+fn MouseEvent::buttons(Self) -> Int
+fn MouseEvent::offset_x(Self) -> Double
+fn MouseEvent::offset_y(Self) -> Double
+
+// Type aliases
+
+// Traits
+

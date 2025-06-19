@@ -1,17 +1,26 @@
+///|
 #external
 type CanvasRendering2D
 
+///|
 #external
 type CanvasPattern
 
+///|
 #external
 type CanvasGradient
 
+///|
 #js.gen
 pub(all) enum CanvasFillStrokeStyles {
   CSS(String)
   Pattern(CanvasPattern)
   Gradient(CanvasGradient)
+}
+
+#js.gen
+pub(all) enum CanvasImageSource {
+  ImageElement(HTMLImageElement)
 }
 
 #js.gen(property, prop, "fillStyle")
@@ -37,6 +46,9 @@ pub fn CanvasRendering2D::line_to(canvas : Self, x : Double, y : Double) -> Unit
 #js.gen(function, prop, "stroke")
 pub fn CanvasRendering2D::stroke(canvas : Self) -> Unit
 
+#js.gen(function, prop, "strokeRect")
+pub fn CanvasRendering2D::stroke_rect(canvas : Self, x : Double, y : Double, width : Double, height : Double) -> Unit
+
 #js.gen(function, prop, "fillRect")
 pub fn CanvasRendering2D::fill_rect(canvas : Self, x : Double, y : Double, width : Double, height : Double) -> Unit
 
@@ -60,3 +72,15 @@ pub fn CanvasRendering2D::translate(canvas : Self, x : Double, y : Double) -> Un
 
 #js.gen(function, prop, "rotate")
 pub fn CanvasRendering2D::rotate(canvas : Self, angle : Double) -> Unit
+
+#js.gen(function, prop, "drawImage")
+#js.gen(param, "image", unwrap)
+pub fn CanvasRendering2D::draw_image(canvas : Self, image : CanvasImageSource, dx : Double, dy : Double) -> Unit
+
+#js.gen(function, prop, "drawImage")
+#js.gen(param, "image", unwrap)
+pub fn CanvasRendering2D::draw_image_with_size(canvas : Self, image : CanvasImageSource, dx : Double, dy : Double, dw : Double, dh : Double) -> Unit
+
+#js.gen(function, prop, "drawImage")
+#js.gen(param, "image", unwrap)
+pub fn CanvasRendering2D::draw_image_with_src_and_dst_size(canvas : Self, image : CanvasImageSource, sx : Double, sy : Double, sw : Double, sh : Double, dx : Double, dy : Double, dw : Double, dh : Double) -> Unit

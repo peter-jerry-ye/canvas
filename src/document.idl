@@ -1,0 +1,17 @@
+///|
+#external
+type Document
+
+#js.gen(property, "document")
+pub let document : Document
+
+#js.gen(function, prop, "querySelector")
+pub fn Document::query_selector(self : Self, selector : String) -> Option[@js.Value]
+
+#js.gen(function, prop, "createElement")
+pub fn Document::create_element(self : Self, tag_name : String) -> @js.Value
+
+///|
+pub fn Document::create_image_element(self : Self) -> HTMLImageElement {
+  self.create_element("img") |> @js.Value::cast
+}

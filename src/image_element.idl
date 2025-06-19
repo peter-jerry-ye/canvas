@@ -1,0 +1,6 @@
+///|
+#external
+type HTMLImageElement
+
+#js.gen(property, prop, "src")
+pub fn HTMLImageElement::set_src(self : HTMLImageElement, src : String) -> Unit

@@ -27,6 +27,20 @@ pub impl @js.Cast for CanvasFillStrokeStyles with into(_) {
   None
 }
 
+pub(all) enum CanvasImageSource {
+  ImageElement(HTMLImageElement)
+}
+
+pub impl @js.Cast for CanvasImageSource with from(value : CanvasImageSource) {
+  match value {
+    ImageElement(p) => p |> @js.Value::cast_from
+  }
+}
+
+pub impl @js.Cast for CanvasImageSource with into(_) {
+  None
+}
+
 #js.gen(property, prop, "fillStyle")
 #js.gen(param, "style", unwrap)
 pub fn CanvasRendering2D::set_fill_style(
@@ -140,6 +154,32 @@ extern "js" fn __gen_ffi__apply_prop_stroke__CanvasRendering2D__stroke(
   __ : @js.Value
 ) =
   #|(self, ...args) => self["stroke"](...args)
+
+#js.gen(function, prop, "strokeRect")
+pub fn CanvasRendering2D::stroke_rect(
+  canvas : Self,
+  x : Double,
+  y : Double,
+  width : Double,
+  height : Double
+) -> Unit {
+  __gen_ffi__apply_prop_strokeRect__CanvasRendering2D__stroke_rect(
+    canvas |> @js.Value::cast_from,
+    x |> @js.Value::cast_from,
+    y |> @js.Value::cast_from,
+    width |> @js.Value::cast_from,
+    height |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__apply_prop_strokeRect__CanvasRendering2D__stroke_rect(
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, ...args) => self["strokeRect"](...args)
 
 #js.gen(function, prop, "fillRect")
 pub fn CanvasRendering2D::fill_rect(
@@ -290,4 +330,100 @@ extern "js" fn __gen_ffi__apply_prop_rotate__CanvasRendering2D__rotate(
   __ : @js.Value
 ) =
   #|(self, ...args) => self["rotate"](...args)
+
+#js.gen(function, prop, "drawImage")
+#js.gen(param, "image", unwrap)
+pub fn CanvasRendering2D::draw_image(
+  canvas : Self,
+  image : CanvasImageSource,
+  dx : Double,
+  dy : Double
+) -> Unit {
+  __gen_ffi__apply_prop_drawImage__CanvasRendering2D__draw_image(
+    canvas |> @js.Value::cast_from,
+    image |> @js.Cast::from |> @js.Value::cast_from,
+    dx |> @js.Value::cast_from,
+    dy |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__apply_prop_drawImage__CanvasRendering2D__draw_image(
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, ...args) => self["drawImage"](...args)
+
+#js.gen(function, prop, "drawImage")
+#js.gen(param, "image", unwrap)
+pub fn CanvasRendering2D::draw_image_with_size(
+  canvas : Self,
+  image : CanvasImageSource,
+  dx : Double,
+  dy : Double,
+  dw : Double,
+  dh : Double
+) -> Unit {
+  __gen_ffi__apply_prop_drawImage__CanvasRendering2D__draw_image_with_size(
+    canvas |> @js.Value::cast_from,
+    image |> @js.Cast::from |> @js.Value::cast_from,
+    dx |> @js.Value::cast_from,
+    dy |> @js.Value::cast_from,
+    dw |> @js.Value::cast_from,
+    dh |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__apply_prop_drawImage__CanvasRendering2D__draw_image_with_size(
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, ...args) => self["drawImage"](...args)
+
+#js.gen(function, prop, "drawImage")
+#js.gen(param, "image", unwrap)
+pub fn CanvasRendering2D::draw_image_with_src_and_dst_size(
+  canvas : Self,
+  image : CanvasImageSource,
+  sx : Double,
+  sy : Double,
+  sw : Double,
+  sh : Double,
+  dx : Double,
+  dy : Double,
+  dw : Double,
+  dh : Double
+) -> Unit {
+  __gen_ffi__apply_prop_drawImage__CanvasRendering2D__draw_image_with_src_and_dst_size(
+    canvas |> @js.Value::cast_from,
+    image |> @js.Cast::from |> @js.Value::cast_from,
+    sx |> @js.Value::cast_from,
+    sy |> @js.Value::cast_from,
+    sw |> @js.Value::cast_from,
+    sh |> @js.Value::cast_from,
+    dx |> @js.Value::cast_from,
+    dy |> @js.Value::cast_from,
+    dw |> @js.Value::cast_from,
+    dh |> @js.Value::cast_from,
+  )
+}
+
+extern "js" fn __gen_ffi__apply_prop_drawImage__CanvasRendering2D__draw_image_with_src_and_dst_size(
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value,
+  __ : @js.Value
+) =
+  #|(self, ...args) => self["drawImage"](...args)
 

@@ -2,7 +2,7 @@
   "name": "peter-jerry-ye/canvas_js",
   "version": "0.1.0",
   "deps": {
-    "rami3l/js-ffi": "0.2.4"
+    "rami3l/js-ffi": "0.3.0"
   },
   "readme": "README.md",
   "repository": "",
